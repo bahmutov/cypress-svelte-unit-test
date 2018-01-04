@@ -18,6 +18,39 @@ npm install --save cypress-svelte-unit-test
 
 ## Use
 
+* Import your component and mount function from this module
+* Mount your component
+* Start testing using [Cypress commands]()
+
+```js
+import Counter from '../components/Counter.html'
+import mount from 'cypress-svelte-unit-test'
+describe('count', () => {
+  beforeEach(() => {
+    mount(Counter)
+  })
+  it('shows 0', () => {
+    cy.contains('Count: 0')
+  })
+})
+```
+
+## Examples
+
+* Counter [component](cypress/components/Counter.html) and [test](cypress/integration/counter-spec.js)
+
+## Details
+
+* uses Webpack + [svelte-loader](https://github.com/sveltejs/svelte-loader)
+
+## Related tools
+
+Same feature for unit testing components from other framesworks using Cypress
+
+* [cypress-vue-unit-test](https://github.com/bahmutov/cypress-vue-unit-test) for Vue.js
+* [cypress-hyperapp-unit-test](https://github.com/bahmutov/cypress-hyperapp-unit-test) for Hyperapp
+* [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test) for React
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2018
