@@ -1,3 +1,16 @@
+function setXMLHttpRequest (w) {
+  // by grabbing the XMLHttpRequest from app's iframe
+  // and putting it here - in the test iframe
+  // we suddenly get spying and stubbing 😁
+  window.XMLHttpRequest = w.XMLHttpRequest
+  return w
+}
+
+function setAlert (w) {
+  window.alert = w.alert
+  return w
+}
+
 export default function mount (Component, data) {
   const html = `
     <div id="app"></div>
@@ -5,6 +18,11 @@ export default function mount (Component, data) {
   const document = cy.state('document')
   document.write(html)
   document.close()
+
+  cy
+    .window({ log: false })
+    .then(setXMLHttpRequest)
+    .then(setAlert)
 
   cy.get('#app', { log: false }).should('exist')
   return cy.document({ log: false }).then(doc => {

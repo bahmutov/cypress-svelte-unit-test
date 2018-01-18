@@ -20,7 +20,7 @@ npm install --save cypress-svelte-unit-test
 
 * Import your component and mount function from this module
 * Mount your component
-* Start testing using [Cypress commands]()
+* Start testing using [Cypress commands](https://on.cypress.io/api)
 
 ```js
 import Counter from '../components/Counter.html'
@@ -38,6 +38,7 @@ describe('count', () => {
 ## Examples
 
 * Counter [component](cypress/components/Counter.html) and [test](cypress/integration/counter-spec.js)
+* Users [component](cypress/components/Users.html) and [test](cypress/integration/users-spec.js) shows XHR spying and stubbing
 
 ## Details
 

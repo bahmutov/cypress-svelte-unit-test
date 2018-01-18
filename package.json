@@ -71,6 +71,7 @@
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "1.1.2",
+    "axios": "0.17.1",
     "ban-sensitive-files": "1.9.2",
     "cypress": "1.4.1",
     "dependency-check": "2.9.2",
