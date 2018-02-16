@@ -1,5 +1,7 @@
 # cypress-svelte-unit-test
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bahmutov/cypress-svelte-unit-test.svg)](https://greenkeeper.io/)
+
 > Unit testing Svelte components in Cypress E2E test runner
 
 [![NPM][npm-icon] ][npm-url]
