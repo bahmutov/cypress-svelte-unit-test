@@ -16,6 +16,7 @@ Requires [Node](https://nodejs.org/en/) version 6 or above.
 
 ```sh
 npm install --save cypress-svelte-unit-test
+npm install --save-dev @cypress/webpack-preprocessor
 ```
 
 ## Use
@@ -45,6 +46,7 @@ describe('count', () => {
 ## Details
 
 * uses Webpack + [svelte-loader](https://github.com/sveltejs/svelte-loader)
+* see [cypress/plugins/index.js](https://github.com/bahmutov/cypress-svelte-unit-test/blob/master/cypress/plugins/index.js) for the necessary plugin setup of `@cypress/webpack-preprocessor`
 
 ## Related tools
 
