@@ -38,6 +38,16 @@ describe('count', () => {
 })
 ```
 
+The `mount` function returns a promise which resolves to the current document. At the same time, the instance of the mounted component is available from `Cypress.component` for further interaction. Assuming that your component has a value item in its `data`:
+
+```js
+mount(InputText, {value: ''}).then((doc) =>			
+  Cypress.component.observe('value', (val) =>
+    // ... called for any change to value
+  )
+)
+```
+
 ## Examples
 
 * Counter [component](cypress/components/Counter.html) and [test](cypress/integration/counter-spec.js)
