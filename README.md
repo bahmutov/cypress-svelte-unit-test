@@ -42,10 +42,10 @@ The `mount` function returns a promise which resolves to the current document. A
 
 ```js
 mount(InputText, {value: ''}).then((doc) =>			
-			Cypress.component.observe('value', (val) =>
-				// ... called for any change to value
-			)
-		);
+  Cypress.component.observe('value', (val) =>
+    // ... called for any change to value
+  )
+)
 ```
 
 ## Examples
