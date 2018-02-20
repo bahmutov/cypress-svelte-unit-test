@@ -50,7 +50,7 @@ mount(InputText, {value: ''}).then((doc) =>
 
 ## Examples
 
-* Counter [component](cypress/components/Counter.html) and [test](cypress/integration/counter-spec.js)
+* Counter [component](cypress/components/Counter.html) and [test](cypress/integration/count-spec.js)
 * Users [component](cypress/components/Users.html) and [test](cypress/integration/users-spec.js) shows XHR spying and stubbing
 
 ## Details
