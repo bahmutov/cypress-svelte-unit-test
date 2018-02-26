@@ -7,5 +7,6 @@ module.exports = {
         use: 'svelte-loader'
       }
     ]
-  }
+  },
+  devtool: 'cheap-module-eval-source-map'
 }
