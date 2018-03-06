@@ -85,7 +85,7 @@
     "prettier-standard": "8.0.0",
     "semantic-action": "1.1.6",
     "standard": "11.0.0",
-    "svelte": "1.56.0",
+    "svelte": "1.56.3",
     "svelte-loader": "2.3.3"
   },
   "standard": {
