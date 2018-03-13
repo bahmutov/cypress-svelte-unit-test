@@ -81,7 +81,7 @@
     "license-checker": "16.0.0",
     "mocha": "5.0.1",
     "nsp": "3.2.1",
-    "pre-git": "3.17.0",
+    "pre-git": "3.17.1",
     "prettier-standard": "8.0.0",
     "semantic-action": "1.1.6",
     "standard": "11.0.0",
