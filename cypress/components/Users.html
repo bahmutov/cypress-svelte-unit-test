@@ -1,8 +1,8 @@
 <ul>
-  {{#each users as user}}
+  {#each users as user}
   <li>
-    <strong>{{user.id}}</strong> - {{user.name}}</li>
-  {{/each}}
+    <strong>{user.id}</strong> - {user.name}</li>
+  {/each}
 </ul>
 
 <script>
@@ -15,7 +15,7 @@
     },
 
     oncreate() {
-      axios.get('http://jsonplaceholder.typicode.com/users?_limit=3')
+      axios.get('https://jsonplaceholder.typicode.com/users?_limit=3')
         .then(response => {
           this.set({ users: response.data })
         })
