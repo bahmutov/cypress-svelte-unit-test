@@ -1,7 +1,5 @@
 # cypress-svelte-unit-test
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/bahmutov/cypress-svelte-unit-test.svg)](https://greenkeeper.io/)
-
 > Unit testing Svelte components in Cypress E2E test runner
 
 [![NPM][npm-icon] ][npm-url]
@@ -9,6 +7,7 @@
 [![Build status][ci-image] ][ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 [![js-standard-style][standard-image]][standard-url]
+[![renovate-app badge][renovate-badge]][renovate-app]
 
 ## Install
 
@@ -41,7 +40,7 @@ describe('count', () => {
 The `mount` function returns a promise which resolves to the current document. At the same time, the instance of the mounted component is available from `Cypress.component` for further interaction. Assuming that your component has a value item in its `data`:
 
 ```js
-mount(InputText, {value: ''}).then((doc) =>			
+mount(InputText, {value: ''}).then((doc) =>
   Cypress.component.observe('value', (val) =>
     // ... called for any change to value
   )
@@ -116,3 +115,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 [semantic-url]: https://github.com/semantic-release/semantic-release
 [standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [standard-url]: http://standardjs.com/
+[renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
+[renovate-app]: https://renovateapp.com/
