@@ -86,7 +86,7 @@
     "semantic-action": "1.1.6",
     "standard": "11.0.0",
     "svelte": "2.6.0",
-    "svelte-loader": "2.9"
+    "svelte-loader": "2.9.0"
   },
   "standard": {
     "globals": [
