@@ -1,0 +1,97 @@
+{
+  "name": "cypress-svelte-unit-test",
+  "description": "Unit testing Svelte components in Cypress E2E test runner",
+  "version": "0.0.0-development",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "bugs": "https://github.com/bahmutov/cypress-svelte-unit-test/issues",
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": [
+        "npm prune",
+        "npm run deps",
+        "npm test",
+        "git add src/*.js",
+        "npm run ban"
+      ],
+      "pre-push": [
+        "npm run unused-deps",
+        "npm run secure",
+        "npm run license",
+        "npm run ban -- --all",
+        "npm run size"
+      ],
+      "post-commit": [],
+      "post-merge": []
+    }
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "src/*.js",
+    "!src/*-spec.js"
+  ],
+  "homepage": "https://github.com/bahmutov/cypress-svelte-unit-test#readme",
+  "keywords": [
+    "cypress",
+    "svelte",
+    "test"
+  ],
+  "license": "MIT",
+  "main": "src/",
+  "private": false,
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bahmutov/cypress-svelte-unit-test.git"
+  },
+  "scripts": {
+    "ban": "ban",
+    "deps": "deps-ok && dependency-check --no-dev .",
+    "issues": "git-issues",
+    "license": "license-checker --production --onlyunknown --csv",
+    "lint": "standard --verbose --fix src/*.js",
+    "prelint": "npm run pretty",
+    "pretest": "npm run lint",
+    "pretty": "prettier-standard 'src/*.js'",
+    "secure": "nsp check",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
+    "test": "npm run cypress:run",
+    "unused-deps": "dependency-check --unused --no-dev .",
+    "semantic-release": "semantic-action pre && npm publish && semantic-action post",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message",
+    "generateNotes": "github-post-release"
+  },
+  "devDependencies": {
+    "@cypress/webpack-preprocessor": "2.0.1",
+    "axios": "0.18.0",
+    "ban-sensitive-files": "1.9.2",
+    "cypress": "3.0.1",
+    "dependency-check": "3.0.0",
+    "deps-ok": "1.2.2",
+    "git-issues": "1.3.1",
+    "github-post-release": "1.13.1",
+    "license-checker": "16.0.0",
+    "mocha": "5.0.1",
+    "nsp": "3.2.1",
+    "pre-git": "3.17.0",
+    "prettier-standard": "8.0.0",
+    "semantic-action": "1.1.6",
+    "standard": "11.0.0",
+    "svelte": "2.6.0",
+    "svelte-loader": "2.9.0"
+  },
+  "standard": {
+    "globals": [
+      "cy",
+      "Cypress"
+    ]
+  }
+}
