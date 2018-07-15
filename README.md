@@ -37,7 +37,9 @@ describe('count', () => {
 })
 ```
 
-The `mount` function returns a promise which resolves to the current document. At the same time, the instance of the mounted component is available from `Cypress.component` for further interaction. Assuming that your component has a value item in its `data`:
+The `mount` function returns a promise which resolves to the current document. At the same time, the instance of the mounted component is available from `Cypress.component` for further interaction.
+
+Assuming that your component has a value item in its `data`:
 
 ```js
 mount(InputText, {value: ''}).then((doc) =>
@@ -47,8 +49,20 @@ mount(InputText, {value: ''}).then((doc) =>
 )
 ```
 
+Assuming that your component has a default slot:
+
+```js
+mount(Button, null, {
+    default: document.createTextNode('Click me')
+}).then((doc) =>
+    // Mounted component has default slot
+    // Cypress.component.options.slots.default
+)
+```
+
 ## Examples
 
+* Button [component](cypress/components/Button.html) and [test](cypress/integration/button-spec.js) shows mounting component with slots
 * Counter [component](cypress/components/Counter.html) and [test](cypress/integration/count-spec.js)
 * Users [component](cypress/components/Users.html) and [test](cypress/integration/users-spec.js) shows XHR spying and stubbing
 
