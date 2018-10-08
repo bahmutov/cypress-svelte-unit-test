@@ -54,16 +54,26 @@ Assuming that your component has a default slot:
 ```js
 mount(Button, null, {
     default: document.createTextNode('Click me')
-}).then((doc) =>
+}).then((doc) => {
     // Mounted component has default slot
     // Cypress.component.options.slots.default
-)
+})
+```
+
+Assuming that your component has a global store:
+
+```js
+mount(Message, null, null store).then((message) => {
+    // Mounted component has store
+    // Cypress.component.store
+})
 ```
 
 ## Examples
 
 * Button [component](cypress/components/Button.html) and [test](cypress/integration/button-spec.js) shows mounting component with slots
 * Counter [component](cypress/components/Counter.html) and [test](cypress/integration/count-spec.js)
+* Message [component](cypress/components/Message.html) and [test](cypress/integration/message-spec.js) shows mounting component with store
 * Users [component](cypress/components/Users.html) and [test](cypress/integration/users-spec.js) shows XHR spying and stubbing
 
 ## Details
