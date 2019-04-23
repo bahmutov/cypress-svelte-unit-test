@@ -22,6 +22,35 @@ npm install --save-dev @cypress/webpack-preprocessor
 
 This component adaptor is meant for [Svelte v3](https://svelte.dev/blog/svelte-3-rethinking-reactivity). If you need Svelte v2 support, check out branch [svelte-v2](https://github.com/bahmutov/cypress-svelte-unit-test/tree/svelte-v2)
 
+## Use
+
+Import your Svelte component and mount using the provided function. Pass [component options](https://svelte.dev/docs#Creating_a_component) and global document options (like a global CSS)
+
+```js
+/// <reference types="cypress" />
+import App from '../components/ChainedBalls.svelte'
+import mount from 'cypress-svelte-unit-test'
+
+describe('SVG animation', () => {
+  it('shows chained balls', () => {
+    cy.viewport(960, 500)
+    const style = `
+      line {
+        stroke: gray;
+        stroke-width: 2px;
+      }
+    `
+    mount(App, {
+      props: {
+        width: 960,
+        height: 500
+      }
+    }, { style })
+    cy.get('circle').should('have.length', 50)
+  })
+})
+```
+
 ## Examples
 
 Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/examples)
@@ -35,6 +64,7 @@ Component | spec
 [ReactiveAssignments.svelte](cypress/components/ReactiveAssignments.svelte) | [reactive-assignments-spec.js](cypress/integration/reactive-assignments-spec.js)
 [ReactiveDeclarations.svelte](cypress/components/ReactiveDeclarations.svelte) | [reactive-declarations-spec.js](cypress/integration/reactive-declarations-spec.js)
 [ReactiveStatements.svelte](cypress/components/ReactiveStatements.svelte) | [reactive-statements-spec.js](cypress/integration/reactive-statements-spec.js)
+[ChainedBalls.svelte](cypress/components/ChainedBalls.svelte) | [chained-balls-spec.js](cypress/integration/chained-balls-spec.js)
 
 ## Details
 

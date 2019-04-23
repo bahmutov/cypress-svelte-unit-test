@@ -11,7 +11,7 @@ function setAlert (w) {
   return w
 }
 
-export default function mount (Component, data, slots, store) {
+export default function mount (Component, options = {}, docOptions = {}) {
   const html = `
     <div id="app"></div>
     `
@@ -26,19 +26,42 @@ export default function mount (Component, data, slots, store) {
 
   cy.get('#app', { log: false }).should('exist')
   return cy.document({ log: false }).then(doc => {
-    Cypress.component = new Component({
-      target: doc.getElementById('app'),
-      data,
-      slots,
-      store
+    const allOptions = Object.assign({}, options, {
+      target: doc.getElementById('app')
     })
+    Cypress.component = new Component(allOptions)
     copyStyles(Component)
+
+    if (docOptions.style) {
+      addGlobalStyle(docOptions.style)
+    }
   })
+}
+
+/**
+ * Adds global CSS style.
+ */
+function addGlobalStyle (css) {
+  const style = document.createElement('style')
+  style.type = 'text/css'
+  style.appendChild(document.createTextNode(css))
+
+  const appIframe = getAppIframe()
+  const head = appIframe.contentDocument.querySelector('head')
+  head.appendChild(style)
 }
 
 // having weak reference to styles prevents garbage collection
 // and "losing" styles when the next test starts
 const stylesCache = new Map()
+
+function getAppIframe () {
+  const parentDocument = window.parent.document
+  const projectName = Cypress.config('projectName')
+  const appIframeId = `Your App: '${projectName}'`
+  const appIframe = parentDocument.getElementById(appIframeId)
+  return appIframe
+}
 
 function copyStyles (component) {
   const hash = component
@@ -60,10 +83,7 @@ function copyStyles (component) {
     return
   }
 
-  const parentDocument = window.parent.document
-  const projectName = Cypress.config('projectName')
-  const appIframeId = `Your App: '${projectName}'`
-  const appIframe = parentDocument.getElementById(appIframeId)
+  const appIframe = getAppIframe()
   const head = appIframe.contentDocument.querySelector('head')
   styles.forEach(style => {
     head.appendChild(style)
