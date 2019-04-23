@@ -26,7 +26,10 @@ This component adaptor is meant for [Svelte v3](https://svelte.dev/blog/svelte-3
 
 Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/examples)
 
-* [HelloWorld.svelte](cypress/components/HelloWorld.svelte) and [test](cypress/integration/hello-world-spec.js)
+All components are in [cypress/components](cypress/components) folder, all test files in [cypress/integration](cypress/integration)
+
+* [HelloWorld.svelte](cypress/components/HelloWorld.svelte) and [hello-world-spec.js](cypress/integration/hello-world-spec.js)
+* [AppWithNested.svelte](cypress/components/AppWithNested.svelte) with [nested-spec.js](cypress/integration/nested-spec.js)
 
 ## Details
 
