@@ -11,7 +11,7 @@ function setAlert (w) {
   return w
 }
 
-export default function mount (Component, data, slots) {
+export default function mount (Component, data, slots, store) {
   const html = `
     <div id="app"></div>
     `
@@ -29,7 +29,8 @@ export default function mount (Component, data, slots) {
     Cypress.component = new Component({
       target: doc.getElementById('app'),
       data,
-      slots
+      slots,
+      store
     })
     copyStyles(Component)
   })
