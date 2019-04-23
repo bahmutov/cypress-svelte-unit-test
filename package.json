@@ -16,7 +16,6 @@
       ],
       "pre-push": [
         "npm run unused-deps",
-        "npm run secure",
         "npm run license",
         "npm run ban -- --all",
         "npm run size"
@@ -57,7 +56,6 @@
     "prelint": "npm run pretty",
     "pretest": "npm run lint",
     "pretty": "prettier-standard 'src/*.js'",
-    "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run cypress:run",
     "unused-deps": "dependency-check --unused --no-dev .",
@@ -80,7 +78,6 @@
     "github-post-release": "1.13.1",
     "license-checker": "16.0.0",
     "mocha": "5.0.1",
-    "nsp": "3.2.1",
     "pre-git": "3.17.0",
     "prettier-standard": "8.0.0",
     "semantic-action": "1.1.6",
