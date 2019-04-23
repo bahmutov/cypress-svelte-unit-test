@@ -1,4 +1,8 @@
 module.exports = {
+  resolve: {
+    // see below for an explanation
+    mainFields: ['svelte', 'browser', 'module', 'main']
+  },
   module: {
     rules: [
       {

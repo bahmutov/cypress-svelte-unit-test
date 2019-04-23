@@ -18,63 +18,23 @@ npm install --save cypress-svelte-unit-test
 npm install --save-dev @cypress/webpack-preprocessor
 ```
 
-## Use
+## Svelte v3
 
-* Import your component and mount function from this module
-* Mount your component
-* Start testing using [Cypress commands](https://on.cypress.io/api)
-
-```js
-import Counter from '../components/Counter.html'
-import mount from 'cypress-svelte-unit-test'
-describe('count', () => {
-  beforeEach(() => {
-    mount(Counter)
-  })
-  it('shows 0', () => {
-    cy.contains('Count: 0')
-  })
-})
-```
-
-The `mount` function returns a promise which resolves to the current document. At the same time, the instance of the mounted component is available from `Cypress.component` for further interaction.
-
-Assuming that your component has a value item in its `data`:
-
-```js
-mount(InputText, {value: ''}).then((doc) =>
-  Cypress.component.observe('value', (val) =>
-    // ... called for any change to value
-  )
-)
-```
-
-Assuming that your component has a default slot:
-
-```js
-mount(Button, null, {
-    default: document.createTextNode('Click me')
-}).then((doc) => {
-    // Mounted component has default slot
-    // Cypress.component.options.slots.default
-})
-```
-
-Assuming that your component has a global store:
-
-```js
-mount(Message, null, null store).then((message) => {
-    // Mounted component has store
-    // Cypress.component.store
-})
-```
+This component adaptor is meant for [Svelte v3](https://svelte.dev/blog/svelte-3-rethinking-reactivity). If you need Svelte v2 support, check out branch [svelte-v2](https://github.com/bahmutov/cypress-svelte-unit-test/tree/svelte-v2)
 
 ## Examples
 
-* Button [component](cypress/components/Button.html) and [test](cypress/integration/button-spec.js) shows mounting component with slots
-* Counter [component](cypress/components/Counter.html) and [test](cypress/integration/count-spec.js)
-* Message [component](cypress/components/Message.html) and [test](cypress/integration/message-spec.js) shows mounting component with store
-* Users [component](cypress/components/Users.html) and [test](cypress/integration/users-spec.js) shows XHR spying and stubbing
+Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/examples)
+
+All components are in [cypress/components](cypress/components) folder, all test files in [cypress/integration](cypress/integration)
+
+Component | spec
+--- | ---
+[HelloWorld.svelte](cypress/components/HelloWorld.svelte) | [hello-world-spec.js](cypress/integration/hello-world-spec.js)
+[AppWithNested.svelte](cypress/components/AppWithNested.svelte) | [nested-spec.js](cypress/integration/nested-spec.js)
+[ReactiveAssignments.svelte](cypress/components/ReactiveAssignments.svelte) | [reactive-assignments-spec.js](cypress/integration/reactive-assignments-spec.js)
+[ReactiveDeclarations.svelte](cypress/components/ReactiveDeclarations.svelte) | [reactive-declarations-spec.js](cypress/integration/reactive-declarations-spec.js)
+[ReactiveStatements.svelte](cypress/components/ReactiveStatements.svelte) | [reactive-statements-spec.js](cypress/integration/reactive-statements-spec.js)
 
 ## Details
 
