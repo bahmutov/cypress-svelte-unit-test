@@ -73,7 +73,7 @@
     "ban-sensitive-files": "1.9.2",
     "cypress": "3.2.0",
     "dependency-check": "3.3.0",
-    "deps-ok": "1.2.2",
+    "deps-ok": "1.4.1",
     "git-issues": "1.3.1",
     "github-post-release": "1.13.1",
     "license-checker": "16.0.0",
