@@ -57,14 +57,15 @@ Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/e
 
 All components are in [cypress/components](cypress/components) folder, all test files in [cypress/integration](cypress/integration)
 
-Component | spec
---- | ---
+Component | spec | topic
+--- | --- | ---
 [HelloWorld.svelte](cypress/components/HelloWorld.svelte) | [hello-world-spec.js](cypress/integration/hello-world-spec.js)
 [AppWithNested.svelte](cypress/components/AppWithNested.svelte) | [nested-spec.js](cypress/integration/nested-spec.js)
 [ReactiveAssignments.svelte](cypress/components/ReactiveAssignments.svelte) | [reactive-assignments-spec.js](cypress/integration/reactive-assignments-spec.js)
 [ReactiveDeclarations.svelte](cypress/components/ReactiveDeclarations.svelte) | [reactive-declarations-spec.js](cypress/integration/reactive-declarations-spec.js)
 [ReactiveStatements.svelte](cypress/components/ReactiveStatements.svelte) | [reactive-statements-spec.js](cypress/integration/reactive-statements-spec.js)
 [ChainedBalls.svelte](cypress/components/ChainedBalls.svelte) | [chained-balls-spec.js](cypress/integration/chained-balls-spec.js)
+[RxUsers.svelte](cypress/components/RxUsers.svelte) | [rx-users-spec.js](cypress/integration/rx-users-spec.js) | RxJS demo
 
 ## Details
 
