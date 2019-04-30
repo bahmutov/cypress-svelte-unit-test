@@ -10,7 +10,7 @@ install:
 node_js:
   - '10'
 script:
-  - npm test
+  - travis_retry npm test
 after_success:
   - npm run semantic-release
 branches:
