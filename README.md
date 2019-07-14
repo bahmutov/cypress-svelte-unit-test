@@ -1,6 +1,6 @@
 # cypress-svelte-unit-test
 
-> Unit testing Svelte components in Cypress E2E test runner
+> Unit testing Svelte components in Cypress E2E test runner with Webpack
 
 [![NPM][npm-icon] ][npm-url]
 
@@ -16,6 +16,22 @@ Requires [Node](https://nodejs.org/en/) version 6 or above.
 ```sh
 npm install --save cypress-svelte-unit-test
 npm install --save-dev @cypress/webpack-preprocessor
+```
+
+Then, configure Cypress to use the plugin in `cypress/plugins/index.js`:
+
+```js
+const webpack = require('@cypress/webpack-preprocessor')
+
+module.exports = on => {
+  const options = {
+    // send in the options from your webpack.config.js, so it works the same
+    // as your app's code
+    webpackOptions: require('../webpack.config.js')
+  }
+
+  on('file:preprocessor', webpack(options))
+}
 ```
 
 ## Svelte v3
@@ -66,11 +82,6 @@ Component | spec | topic
 [ReactiveStatements.svelte](cypress/components/ReactiveStatements.svelte) | [reactive-statements-spec.js](cypress/integration/reactive-statements-spec.js)
 [ChainedBalls.svelte](cypress/components/ChainedBalls.svelte) | [chained-balls-spec.js](cypress/integration/chained-balls-spec.js)
 [RxUsers.svelte](cypress/components/RxUsers.svelte) | [rx-users-spec.js](cypress/integration/rx-users-spec.js) | RxJS demo
-
-## Details
-
-* uses Webpack + [svelte-loader](https://github.com/sveltejs/svelte-loader)
-* see [cypress/plugins/index.js](https://github.com/bahmutov/cypress-svelte-unit-test/blob/master/cypress/plugins/index.js) for the necessary plugin setup of `@cypress/webpack-preprocessor`
 
 ## Related tools
 
