@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import App from '../components/ChainedBalls.svelte'
-import mount from '../../src'
+import mount from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('SVG animation', () => {

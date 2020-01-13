@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import StaticComponent from './StaticComponent.svelte'
-import mount from '../../../src'
+import mount from 'cypress-svelte-unit-test'
 
 it('has the button', () => {
   mount(StaticComponent)

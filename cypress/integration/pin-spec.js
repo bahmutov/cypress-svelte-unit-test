@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import Pin from '../components/Pin.svelte'
-import mount from '../../src'
+import mount from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Pin keypad', () => {
