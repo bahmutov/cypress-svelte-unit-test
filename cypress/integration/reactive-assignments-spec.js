@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import Counter from '../components/ReactiveAssignments.svelte'
-import mount from '../../src'
+import mount from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Reactive assignments', () => {

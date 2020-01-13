@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import DynamicAttributes from '../components/DynamicAttributes.svelte'
-import mount from '../../src'
+import mount from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Dynamic attributes', () => {

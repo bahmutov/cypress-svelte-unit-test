@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import HelloComponent from './HelloComponent.svelte'
-import mount from '../../../src'
+import mount from 'cypress-svelte-unit-test'
 
 it('shows', () => {
   mount(HelloComponent)

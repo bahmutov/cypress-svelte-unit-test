@@ -1,16 +1,19 @@
 /// <reference types="cypress" />
 import CallbackComponent from "./CallbackComponent.svelte"
-import mount from '../../../src'
+import mount from 'cypress-svelte-unit-test'
 import {price} from './stores/price'
 
-describe(CallbackComponent.name, () => {
+describe('CallbackComponent', () => {
   it("displays the initial price", () => {
     price.set(99.99);
     mount(CallbackComponent);
     cy.contains("The price is: $99.99");
   });
 
-  it("updates when the price changes", async () => {
+  // notice we are not declaring this test as async
+  // Cypress automatically waits for the condition to pass
+  // when you use commands like "cy.contains"
+  it("updates when the price changes", () => {
     mount(CallbackComponent);
     price.set(123.45);
     cy.contains("The price is: $123.45");
