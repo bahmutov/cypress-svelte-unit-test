@@ -1,5 +1,6 @@
 {
   "video": false,
   "viewportHeight": 100,
-  "viewportWidth": 200
+  "viewportWidth": 200,
+  "testFiles": "**/*spec.js"
 }
