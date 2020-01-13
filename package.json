@@ -78,7 +78,7 @@
     "github-post-release": "1.13.1",
     "license-checker": "16.0.0",
     "mocha": "5.2.0",
-    "pre-git": "3.17.0",
+    "pre-git": "3.17.1",
     "prettier-standard": "8.0.1",
     "rxjs": "6.5.1",
     "semantic-action": "1.1.6",
