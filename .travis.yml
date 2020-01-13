@@ -5,6 +5,10 @@ cache:
     - ~/.cache
 notifications:
   email: true
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
 install:
   - npm ci
 node_js:
