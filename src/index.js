@@ -11,18 +11,27 @@ function setAlert (w) {
   return w
 }
 
+function setEventListeners (w) {
+  window.addEventListener = w.addEventListener.bind(w)
+  window.removeEventListener = w.removeEventListener.bind(w)
+}
+
 export default function mount (Component, options = {}, docOptions = {}) {
   const html = `
     <div id="app"></div>
     `
-  const document = cy.state('document')
-  document.write(html)
-  document.close()
+  const cyDocument = cy.state('document')
+  cyDocument.write(html)
+  cyDocument.close()
+
+  document.addEventListener = cyDocument.addEventListener.bind(cyDocument)
+  document.removeEventListener = cyDocument.removeEventListener.bind(cyDocument)
 
   cy
     .window({ log: false })
     .then(setXMLHttpRequest)
     .then(setAlert)
+    .then(setEventListeners)
 
   cy.get('#app', { log: false }).should('exist')
   return cy.document({ log: false }).then(doc => {
