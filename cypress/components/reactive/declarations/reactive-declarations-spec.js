@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import Counter from '../components/ReactiveDeclarations.svelte'
-import mount from 'cypress-svelte-unit-test'
+import Counter from './ReactiveDeclarations.svelte'
+import {mount} from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Reactive declarations', () => {

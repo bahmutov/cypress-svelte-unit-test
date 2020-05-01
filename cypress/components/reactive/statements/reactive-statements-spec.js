@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import Counter from '../components/ReactiveStatements.svelte'
+import Counter from './ReactiveStatements.svelte'
 import mount from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
