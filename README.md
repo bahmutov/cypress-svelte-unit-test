@@ -1,4 +1,4 @@
-# cypress-svelte-unit-test
+# cypress-svelte-unit-test [![CircleCI](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master)
 
 > Unit testing Svelte components in Cypress E2E test runner with Webpack
 
