@@ -23,11 +23,14 @@ export function mount (Component, options = {}, docOptions = {}) {
     cleanupStyles(document)
 
     let el = document.getElementById(rootId)
-    if (!el) {
-      el = document.createElement('div')
-      el.setAttribute('id', rootId)
-      document.getElementsByTagName('body')[0].prepend(el)
+    if (el) {
+      while (el.firstChild) {
+        el.removeChild(el.firstChild)
+      }
     }
+    el = document.createElement('div')
+    el.setAttribute('id', rootId)
+    document.getElementsByTagName('body')[0].prepend(el)
 
     const allOptions = Object.assign({}, options, {
       target: el
