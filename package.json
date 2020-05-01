@@ -33,7 +33,6 @@
     "license": "license-checker --production --onlyunknown --csv",
     "lint": "prettier --write 'cypress/**/*.js' 'lib/*.ts'",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard 'lib/*.ts'",
     "size": "npm pack --dry",
     "test": "npm run cypress:run",
     "unused-deps": "dependency-check --unused --no-dev .",
