@@ -41,7 +41,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "5.1.2",
@@ -60,7 +61,8 @@
     "svelte": "3.21.0",
     "svelte-loader": "2.13.6",
     "typescript": "3.8.3",
-    "webpack": "4.41.5"
+    "webpack": "4.41.5",
+    "semantic-release": "^17.0.7"
   },
   "standard": {
     "globals": [

@@ -8,7 +8,7 @@ workflows:
           name: Test
           build: npm run lint && npm run build
           no-workspace: true
-          # post-steps:
-          #   - run:
-          #       name: NPM release 🚀
-          #       command: npm run semantic-release
+          post-steps:
+            - run:
+                name: NPM release 🚀
+                command: npm run semantic-release
