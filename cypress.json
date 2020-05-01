@@ -1,6 +1,8 @@
 {
   "video": false,
-  "viewportHeight": 100,
-  "viewportWidth": 200,
-  "testFiles": "**/*spec.js"
+  "viewportHeight": 300,
+  "viewportWidth": 300,
+  "testFiles": "**/*spec.js",
+  "experimentalComponentTesting": true,
+  "componentFolder": "cypress/components"
 }

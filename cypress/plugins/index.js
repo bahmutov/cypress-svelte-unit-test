@@ -1,4 +1,4 @@
-const webpack = require('@cypress/webpack-preprocessor')
+const webpackPreprocessor = require('@cypress/webpack-preprocessor')
 module.exports = on => {
   const options = {
     // send in the options from your webpack.config.js, so it works the same
@@ -6,5 +6,5 @@ module.exports = on => {
     webpackOptions: require('../webpack.config.js')
   }
 
-  on('file:preprocessor', webpack(options))
+  on('file:preprocessor', webpackPreprocessor(options))
 }

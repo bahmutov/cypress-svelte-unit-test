@@ -6,7 +6,7 @@ module.exports = {
     alias: {
       // so our specs in this example can use full module name
       // import mount from 'cypress-svelte-unit-test'
-      'cypress-svelte-unit-test': join(__dirname, '..', 'src')
+      'cypress-svelte-unit-test': join(__dirname, '..', 'dist')
     }
   },
   module: {

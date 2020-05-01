@@ -6,7 +6,7 @@ import { fetch, price } from "./price.js";
 const fetchOkResponse = data =>
   ({ ok: true, json: () => Promise.resolve(data) })
 
-describe(fetch.name, () => {
+describe('fetch', () => {
   beforeEach(() => {
     // Cypress automatically cleans up spies and stubs after each test
     cy.stub(window, 'fetch').resolves(fetchOkResponse({ price: 99.99 }))

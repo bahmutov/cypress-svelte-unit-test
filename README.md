@@ -1,28 +1,21 @@
-# cypress-svelte-unit-test
+# cypress-svelte-unit-test [![CircleCI](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master) [![renovate-app badge][renovate-badge]][renovate-app]
 
-> Unit testing Svelte components in Cypress E2E test runner with Webpack
+> Component testing for Svelte apps using the open source [Cypress.io](https://www.cypress.io/) E2E test runner **v4.5.0+**
 
-[![NPM][npm-icon] ][npm-url]
-
-[![Build status][ci-image] ][ci-url]
-[![semantic-release][semantic-image] ][semantic-url]
-[![js-standard-style][standard-image]][standard-url]
-[![renovate-app badge][renovate-badge]][renovate-app]
+![Keypad pin spec](images/pin.gif)
 
 ## Install
 
-Requires [Node](https://nodejs.org/en/) version 6 or above.
+Requires [Node](https://nodejs.org/en/) version 8 or above and Cypress v4.5.0+
 
 ```sh
-npm install --save cypress-svelte-unit-test
-npm install --save-dev @cypress/webpack-preprocessor
+npm install --save-dev cypress-svelte-unit-test @cypress/webpack-preprocessor
 ```
 
-Then, configure Cypress to use the plugin in `cypress/plugins/index.js`:
+1. Configure Cypress to use the plugin in [cypress/plugins/index.js](cypress/plugins/index.js):
 
 ```js
-const webpack = require('@cypress/webpack-preprocessor')
-
+const webpackPreprocessor = require('@cypress/webpack-preprocessor')
 module.exports = on => {
   const options = {
     // send in the options from your webpack.config.js, so it works the same
@@ -30,9 +23,25 @@ module.exports = on => {
     webpackOptions: require('../webpack.config.js')
   }
 
-  on('file:preprocessor', webpack(options))
+  on('file:preprocessor', webpackPreprocessor(options))
 }
 ```
+
+2. ⚠️ Turn the experimental component support on in your `cypress.json`. You can also specify where component spec files are located. For example, to have them located in `src` folder use:
+
+```json
+{
+  "experimentalComponentTesting": true,
+  "componentFolder": "src"
+}
+```
+
+See [cypress.json](cypress.json) in this project.
+
+## Known issues
+
+- uses Webpack [#53](https://github.com/bahmutov/cypress-svelte-unit-test/issues/53), which is different how most Svelte apps are rolled 😉
+- need to load images differently to transform relative paths
 
 ## Svelte v3
 
@@ -45,7 +54,7 @@ Import your Svelte component and mount using the provided function. Pass [compon
 ```js
 /// <reference types="cypress" />
 import App from '../components/ChainedBalls.svelte'
-import mount from 'cypress-svelte-unit-test'
+import {mount} from 'cypress-svelte-unit-test'
 
 describe('SVG animation', () => {
   it('shows chained balls', () => {
@@ -67,21 +76,27 @@ describe('SVG animation', () => {
 })
 ```
 
+You can use local styles, local CSS file path (relative to the the Cypress project root) or external stylesheets. See [styles example](cypress/components/styles).
+
 ## Examples
 
 Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/examples)
 
-All components are in [cypress/components](cypress/components) folder, all test files in [cypress/integration](cypress/integration)
+All components and tests are in [cypress/components](cypress/components) folder
 
-Component | spec | topic
---- | --- | ---
-[HelloWorld.svelte](cypress/components/HelloWorld.svelte) | [hello-world-spec.js](cypress/integration/hello-world-spec.js)
-[AppWithNested.svelte](cypress/components/AppWithNested.svelte) | [nested-spec.js](cypress/integration/nested-spec.js)
-[ReactiveAssignments.svelte](cypress/components/ReactiveAssignments.svelte) | [reactive-assignments-spec.js](cypress/integration/reactive-assignments-spec.js)
-[ReactiveDeclarations.svelte](cypress/components/ReactiveDeclarations.svelte) | [reactive-declarations-spec.js](cypress/integration/reactive-declarations-spec.js)
-[ReactiveStatements.svelte](cypress/components/ReactiveStatements.svelte) | [reactive-statements-spec.js](cypress/integration/reactive-statements-spec.js)
-[ChainedBalls.svelte](cypress/components/ChainedBalls.svelte) | [chained-balls-spec.js](cypress/integration/chained-balls-spec.js)
-[RxUsers.svelte](cypress/components/RxUsers.svelte) | [rx-users-spec.js](cypress/integration/rx-users-spec.js) | RxJS demo
+Test | Description
+--- | ---
+[animation](cypress/components/animation) | Chained balls SVG animation
+[global-handlers](cypress/components/global-handlers) | Attaches event listeners to `document` and `window`
+[hello](cypress/components/hello) | Hello, component testing!
+[image](cypress/components/image) | Loading Rick-Roll image
+[named-exports](cypress/components/named-exports) | Nice Audio player test
+[nested](cypress/components/nested) | Checking nested components and local styles
+[pin](cypress/components/pin) | Keypad pin test
+[reactive](cypress/components/reactive) | Svelte reactive props, declarations and statements
+[rx](cypress/components/rx) | Fetching GitHub users as a reactive stream
+[styles](cypress/components/styles) | Shows inline, CSS and external stylesheet styles in spec
+[tutorial](cypress/components/tutorial) | A few components and tests from Svelte tutorial
 
 ## Related tools
 
@@ -133,13 +148,7 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[npm-icon]: https://nodei.co/npm/cypress-svelte-unit-test.svg?downloads=true
-[npm-url]: https://npmjs.org/package/cypress-svelte-unit-test
 [ci-image]: https://travis-ci.org/bahmutov/cypress-svelte-unit-test.svg?branch=master
 [ci-url]: https://travis-ci.org/bahmutov/cypress-svelte-unit-test
-[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-url]: https://github.com/semantic-release/semantic-release
-[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-[standard-url]: http://standardjs.com/
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
 [renovate-app]: https://renovateapp.com/

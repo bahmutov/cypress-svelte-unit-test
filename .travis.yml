@@ -14,9 +14,11 @@ install:
 node_js:
   - '12'
 script:
+  - npm run lint
+  - npm run build
   - travis_retry npm test
-after_success:
-  - npm run semantic-release
+# after_success:
+#   - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
