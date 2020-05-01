@@ -5,6 +5,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          executor: cypress/base-12
           name: Test
           build: npm run lint && npm run build
           no-workspace: true
