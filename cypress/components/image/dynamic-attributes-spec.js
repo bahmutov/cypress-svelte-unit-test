@@ -5,9 +5,12 @@ import {mount} from 'cypress-svelte-unit-test'
 /* eslint-env mocha */
 describe('Dynamic attributes', () => {
   it('shows dancing man', () => {
+    cy.viewport('iphone-6')
     mount(DynamicAttributes)
     cy.get('img[alt="Rick Astley dancing"]').should('be.visible')
-    // TODO solve serving images
-    // GET http://localhost:51092/__/images/rick.gif 404 (Not Found)
+
+    // we need to figure out images better
+    // all relative paths to the element have to be served
+    // relative like "/__root/<path>"
   })
 })
