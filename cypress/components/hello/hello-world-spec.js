@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import HelloWorld from './HelloWorld.svelte'
-import {mount} from 'cypress-svelte-unit-test'
+import { mount } from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Hello world', () => {

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import AppWithNested from './AppWithNested.svelte'
 import Nested from './Nested.svelte'
-import {mount} from 'cypress-svelte-unit-test'
+import { mount } from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Nested components', () => {

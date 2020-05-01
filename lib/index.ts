@@ -1,7 +1,7 @@
 import {
   checkMountModeEnabled,
   cleanupStyles,
-  injectStylesBeforeElement
+  injectStylesBeforeElement,
 } from './utils'
 
 const rootId = 'cypress-root'
@@ -48,7 +48,7 @@ export interface StyleOptions {
 export function mount(
   Component: any,
   options = {},
-  styleOptions: Partial<StyleOptions> = {}
+  styleOptions: Partial<StyleOptions> = {},
 ) {
   checkMountModeEnabled()
 
@@ -70,7 +70,7 @@ export function mount(
     injectStylesBeforeElement(styleOptions, document, el)
 
     const allOptions = Object.assign({}, options, {
-      target: el
+      target: el,
     })
 
     const component = new Component(allOptions)

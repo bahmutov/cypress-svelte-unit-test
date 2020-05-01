@@ -1,15 +1,15 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store'
 
-const initialValue = "";
+const initialValue = ''
 
-export const reset = () => price.set(initialValue);
+export const reset = () => price.set(initialValue)
 
-export const price = writable(initialValue);
+export const price = writable(initialValue)
 
 export const fetch = async () => {
-  const response = await window.fetch("/price", { method: "GET" });
+  const response = await window.fetch('/price', { method: 'GET' })
   if (response.ok) {
-    const data = await response.json();
-    price.set(data.price);
+    const data = await response.json()
+    price.set(data.price)
   }
-};
+}

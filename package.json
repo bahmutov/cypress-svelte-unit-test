@@ -31,8 +31,7 @@
     "deps": "deps-ok && dependency-check --no-dev .",
     "issues": "git-issues",
     "license": "license-checker --production --onlyunknown --csv",
-    "lint": "echo update linter",
-    "prelint": "npm run pretty",
+    "lint": "prettier --write 'cypress/**/*.js' 'lib/*.ts'",
     "pretest": "npm run lint",
     "pretty": "prettier-standard 'lib/*.ts'",
     "size": "npm pack --dry",
@@ -54,13 +53,14 @@
     "git-issues": "1.3.1",
     "license-checker": "16.0.0",
     "mocha": "5.2.0",
+    "prettier": "2.0.5",
     "rxjs": "6.5.1",
     "semantic-action": "1.1.6",
+    "semantic-release": "^17.0.7",
     "svelte": "3.21.0",
     "svelte-loader": "2.13.6",
     "typescript": "3.8.3",
-    "webpack": "4.41.5",
-    "semantic-release": "^17.0.7"
+    "webpack": "4.41.5"
   },
   "standard": {
     "globals": [

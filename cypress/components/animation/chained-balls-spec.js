@@ -20,12 +20,12 @@ describe('SVG animation', () => {
       {
         props: {
           width: 960,
-          height: 500
-        }
+          height: 500,
+        },
       },
       {
-        style
-      }
+        style,
+      },
     )
     cy.get('circle').should('have.length', 50)
   })

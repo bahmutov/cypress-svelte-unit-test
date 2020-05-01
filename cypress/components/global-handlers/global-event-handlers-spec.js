@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import GlobalEventHandlers from './GlobalEventHandlers.svelte'
-import {mount} from 'cypress-svelte-unit-test'
+import { mount } from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
 describe('Global event handlers', () => {

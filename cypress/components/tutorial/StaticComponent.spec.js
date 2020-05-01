@@ -4,12 +4,12 @@ import mount from 'cypress-svelte-unit-test'
 
 it('has the button', () => {
   mount(StaticComponent)
-  cy.get('button').should('be.visible').and('have.text', "Click me, human!")
+  cy.get('button').should('be.visible').and('have.text', 'Click me, human!')
 })
 
 it.only("renders the passed 'who' prop in the button caption", () => {
   mount(StaticComponent, {
-    props: { who: "Daniel" }
-  });
-  cy.get('button').should('have.text', "Click me, Daniel!");
+    props: { who: 'Daniel' },
+  })
+  cy.get('button').should('have.text', 'Click me, Daniel!')
 })

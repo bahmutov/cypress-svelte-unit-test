@@ -4,7 +4,7 @@ export function checkMountModeEnabled() {
   // @ts-ignore
   if (Cypress.spec.specType !== 'component') {
     throw new Error(
-      `In order to use mount or unmount functions please place the spec in component folder`
+      `In order to use mount or unmount functions please place the spec in component folder`,
     )
   }
 }
@@ -15,12 +15,12 @@ export function checkMountModeEnabled() {
  */
 export function cleanupStyles(document: Document) {
   const styles = document.body.querySelectorAll('style')
-  styles.forEach(styleElement => {
+  styles.forEach((styleElement) => {
     document.body.removeChild(styleElement)
   })
 
   const links = document.body.querySelectorAll('link[rel=stylesheet]')
-  links.forEach(link => {
+  links.forEach((link) => {
     document.body.removeChild(link)
   })
 }
@@ -31,9 +31,9 @@ export function cleanupStyles(document: Document) {
 function insertStylesheets(
   stylesheets: string[],
   document: Document,
-  el: HTMLElement
+  el: HTMLElement,
 ) {
-  stylesheets.forEach(href => {
+  stylesheets.forEach((href) => {
     const link = document.createElement('link')
     link.type = 'text/css'
     link.rel = 'stylesheet'
@@ -46,7 +46,7 @@ function insertStylesheets(
  * Inserts a single stylesheet element
  */
 function insertStyles(styles: string[], document: Document, el: HTMLElement) {
-  styles.forEach(style => {
+  styles.forEach((style) => {
     const styleElement = document.createElement('style')
     styleElement.appendChild(document.createTextNode(style))
     document.body.insertBefore(styleElement, el)
@@ -57,9 +57,9 @@ function insertSingleCssFile(
   cssFilename: string,
   document: Document,
   el: HTMLElement,
-  log?: boolean
+  log?: boolean,
 ) {
-  return cy.readFile(cssFilename, { log }).then(css => {
+  return cy.readFile(cssFilename, { log }).then((css) => {
     const style = document.createElement('style')
     style.appendChild(document.createTextNode(css))
     document.body.insertBefore(style, el)
@@ -74,10 +74,10 @@ function insertLocalCssFiles(
   cssFilenames: string[],
   document: Document,
   el: HTMLElement,
-  log?: boolean
+  log?: boolean,
 ) {
-  return Cypress.Promise.mapSeries(cssFilenames, cssFilename =>
-    insertSingleCssFile(cssFilename, document, el, log)
+  return Cypress.Promise.mapSeries(cssFilenames, (cssFilename) =>
+    insertSingleCssFile(cssFilename, document, el, log),
   )
 }
 
@@ -88,7 +88,7 @@ function insertLocalCssFiles(
 export const injectStylesBeforeElement = (
   options: Partial<StyleOptions & { log: boolean }>,
   document: Document,
-  el: HTMLElement
+  el: HTMLElement,
 ) => {
   // first insert all stylesheets as Link elements
   let stylesheets: string[] = []
