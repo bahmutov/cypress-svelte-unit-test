@@ -1,0 +1,14 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          name: Test
+          build: npm run lint
+          no-workspace: true
+          # post-steps:
+          #   - run:
+          #       name: NPM release 🚀
+          #       command: npm run semantic-release
