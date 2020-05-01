@@ -2,5 +2,7 @@
   "video": false,
   "viewportHeight": 100,
   "viewportWidth": 200,
-  "testFiles": "**/*spec.js"
+  "testFiles": "**/*spec.js",
+  "experimentalComponentTesting": true,
+  "componentFolder": "cypress/components"
 }
