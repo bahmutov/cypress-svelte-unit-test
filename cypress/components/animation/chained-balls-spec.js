@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import App from '../components/ChainedBalls.svelte'
+import App from './ChainedBalls.svelte'
 import mount from 'cypress-svelte-unit-test'
 
 /* eslint-env mocha */
