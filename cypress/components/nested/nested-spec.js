@@ -31,4 +31,29 @@ describe('Nested components', () => {
       .should('not.have.css', 'color', purple)
       .should('not.have.css', 'font-family', '"Comic Sans MS"')
   })
+
+  it('adds style', () => {
+    mount(Nested, null, {
+      style: `
+        body {
+          background: pink
+        }
+      `
+    })
+    cy.get('body').should('have.css', 'background-color', 'rgb(255, 192, 203)')
+  })
+
+  it('adds CSS file', () => {
+    mount(Nested, null, {
+      cssFile: 'cypress/components/nested/app.css'
+    })
+    cy.get('body').should('have.css', 'background-color', 'rgb(0, 255, 255)')
+  })
+
+  it('adds stylesheet', () => {
+    mount(Nested, null, {
+      stylesheet: '/__root/cypress/components/nested/app.css'
+    })
+    cy.get('body').should('have.css', 'background-color', 'rgb(0, 255, 255)')
+  })
 })

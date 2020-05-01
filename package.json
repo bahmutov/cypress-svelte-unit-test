@@ -25,11 +25,10 @@
     }
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "files": [
-    "src/*.js",
-    "!src/*-spec.js"
+    "dist"
   ],
   "homepage": "https://github.com/bahmutov/cypress-svelte-unit-test#readme",
   "keywords": [
@@ -38,7 +37,7 @@
     "test"
   ],
   "license": "MIT",
-  "main": "src/",
+  "main": "dist",
   "private": false,
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
@@ -52,16 +51,18 @@
     "deps": "deps-ok && dependency-check --no-dev .",
     "issues": "git-issues",
     "license": "license-checker --production --onlyunknown --csv",
-    "lint": "standard --verbose --fix src/*.js",
+    "lint": "echo update linter",
     "prelint": "npm run pretty",
     "pretest": "npm run lint",
-    "pretty": "prettier-standard 'src/*.js'",
-    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
+    "pretty": "prettier-standard 'lib/*.ts'",
+    "size": "npm pack --dry",
     "test": "npm run cypress:run",
     "unused-deps": "dependency-check --unused --no-dev .",
     "semantic-release": "semantic-action pre && npm publish && semantic-action post",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "build": "tsc",
+    "watch": "tsc -w"
   },
   "release": {
     "analyzeCommits": "simple-commit-message",
@@ -85,6 +86,7 @@
     "standard": "11.0.0",
     "svelte": "3.1.0",
     "svelte-loader": "2.13.3",
+    "typescript": "3.8.3",
     "webpack": "4.41.5"
   },
   "standard": {
