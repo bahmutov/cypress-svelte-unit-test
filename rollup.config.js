@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import filesize from 'rollup-plugin-filesize'
 import alias from '@rollup/plugin-alias'
 import commonjs from '@rollup/plugin-commonjs'
+import autoPreprocess from 'svelte-preprocess'
 
 const resolvedCypressSvelteUnitTest = require.resolve('.')
 // console.log('resolved cypress svelte unit test', resolvedCypressSvelteUnitTest)
@@ -22,7 +23,9 @@ export default {
     }),
     resolve(),
     commonjs(),
-    svelte(),
+    svelte({
+      preprocess: autoPreprocess(),
+    }),
     filesize(),
   ],
 }
