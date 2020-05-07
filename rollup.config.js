@@ -7,7 +7,9 @@ import autoPreprocess from 'svelte-preprocess'
 import istanbul from 'rollup-plugin-istanbul'
 
 const resolvedCypressSvelteUnitTest = require.resolve('.')
-// console.log('resolved cypress svelte unit test', resolvedCypressSvelteUnitTest)
+
+const isProduction = process.env.NODE_ENV === 'production'
+const isDevelopment = !isProduction
 
 export default {
   input: 'src/main.js',
@@ -27,11 +29,14 @@ export default {
     svelte({
       preprocess: autoPreprocess(),
     }),
+
+    // during normal testing we want to collect code coverage
     // include all source files, but exclude spec files
-    istanbul({
-      include: ['cypress/components/**'],
-      exclude: ['**/*spec.js'],
-    }),
+    isDevelopment &&
+      istanbul({
+        include: ['cypress/components/**'],
+        exclude: ['**/*spec.js'],
+      }),
     filesize(),
   ],
 }
