@@ -4,6 +4,7 @@ import filesize from 'rollup-plugin-filesize'
 import alias from '@rollup/plugin-alias'
 import commonjs from '@rollup/plugin-commonjs'
 import autoPreprocess from 'svelte-preprocess'
+import istanbul from 'rollup-plugin-istanbul'
 
 const resolvedCypressSvelteUnitTest = require.resolve('.')
 // console.log('resolved cypress svelte unit test', resolvedCypressSvelteUnitTest)
@@ -25,6 +26,10 @@ export default {
     commonjs(),
     svelte({
       preprocess: autoPreprocess(),
+    }),
+    istanbul({
+      include: ['cypress/components/**'],
+      exclude: ['**/*spec.js'],
     }),
     filesize(),
   ],
