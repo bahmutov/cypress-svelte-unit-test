@@ -1,7 +1,7 @@
 // try rolling Svelte component manually
 const rollup = require('rollup')
-const svelte = require('rollup-plugin-svelte')
-const resolve = require('@rollup/plugin-node-resolve')
+// const svelte = require('rollup-plugin-svelte')
+// const resolve = require('@rollup/plugin-node-resolve')
 const loadConfigFile = require('rollup/dist/loadConfigFile')
 const path = require('path')
 

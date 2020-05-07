@@ -4,5 +4,7 @@
   "viewportWidth": 300,
   "testFiles": "**/*spec.js",
   "experimentalComponentTesting": true,
-  "componentFolder": "cypress/components"
+  "componentFolder": "cypress/components",
+  "supportFile": false,
+  "nodeVersion": "system"
 }
