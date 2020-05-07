@@ -27,6 +27,7 @@ export default {
     svelte({
       preprocess: autoPreprocess(),
     }),
+    // include all source files, but exclude spec files
     istanbul({
       include: ['cypress/components/**'],
       exclude: ['**/*spec.js'],
