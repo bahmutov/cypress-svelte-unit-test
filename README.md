@@ -82,19 +82,21 @@ Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/e
 
 All components and tests are in [cypress/components](cypress/components) folder
 
-| Test                                                  | Description                                              |
-| ----------------------------------------------------- | -------------------------------------------------------- |
-| [animation](cypress/components/animation)             | Chained balls SVG animation                              |
-| [global-handlers](cypress/components/global-handlers) | Attaches event listeners to `document` and `window`      |
-| [hello](cypress/components/hello)                     | Hello, component testing!                                |
-| [image](cypress/components/image)                     | Loading Rick-Roll image                                  |
-| [named-exports](cypress/components/named-exports)     | Nice Audio player test                                   |
-| [nested](cypress/components/nested)                   | Checking nested components and local styles              |
-| [pin](cypress/components/pin)                         | Keypad pin test                                          |
-| [reactive](cypress/components/reactive)               | Svelte reactive props, declarations and statements       |
-| [rx](cypress/components/rx)                           | Fetching GitHub users as a reactive stream               |
-| [styles](cypress/components/styles)                   | Shows inline, CSS and external stylesheet styles in spec |
-| [tutorial](cypress/components/tutorial)               | A few components and tests from Svelte tutorial          |
+<!-- prettier-ignore-start -->
+Test | Description
+--- | ---
+[animation](cypress/components/animation) | Chained balls SVG animation
+[global-handlers](cypress/components/global-handlers) | Attaches event listeners to `document` and `window`
+[hello](cypress/components/hello) | Hello, component testing!
+[image](cypress/components/image) | Loading Rick-Roll image
+[named-exports](cypress/components/named-exports) | Nice Audio player test
+[nested](cypress/components/nested) | Checking nested components and local styles
+[pin](cypress/components/pin) | Keypad pin test
+[reactive](cypress/components/reactive) | Svelte reactive props, declarations and statements
+[rx](cypress/components/rx) | Fetching GitHub users as a reactive stream
+[styles](cypress/components/styles) | Shows inline, CSS and external stylesheet styles in spec
+[tutorial](cypress/components/tutorial) | A few components and tests from Svelte tutorial
+<!-- prettier-ignore-end -->
 
 ## Related tools
 
