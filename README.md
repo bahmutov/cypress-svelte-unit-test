@@ -37,6 +37,67 @@ See [cypress.json](cypress.json) in this project.
 
 - need to load images differently to transform relative paths
 
+## Code coverage
+
+### Instrument your code
+
+See [rollup.config.js](rollup.config.js) how you can instrument source files. In short:
+
+```js
+// npm i -D rollup-plugin-istanbul
+import istanbul from 'rollup-plugin-istanbul'
+plugins: [
+  istanbul({
+    include: ['cypress/components/**'],
+    exclude: ['**/*spec.js'],
+  }),
+]
+```
+
+In Cypress iframe you should see the code coverage object under `window.__coverage__`.
+
+![Window coverage object](images/window-coverage.png)
+
+### Coverage report
+
+To merge coverage and generate reports we need to use [@cypress/code-coverage](https://github.com/cypress-io/code-coverage) plugin.
+
+```shell
+npm i -D @cypress/code-coverage
+```
+
+Add it to your [cypress/support/index.js](cypress/support/index.js) file
+
+```js
+import '@cypress/code-coverage/support'
+```
+
+Add the plugin to your [cypress/plugins/index.js](cypress/plugins/index.js) file
+
+```js
+module.exports = (on, config) => {
+  on('file:preprocessor', require('@bahmutov/cy-rollup'))
+  require('@cypress/code-coverage/task')(on, config)
+  // IMPORTANT to return the config object
+  // with the any changed environment variables
+  return config
+}
+```
+
+After the tests finish, you should see messages in the Command Log
+
+![Coverage messages](images/coverage-messages.png)
+
+And find generated reports in `coverage` folder. For example, to open the HTML report
+
+```shell
+open coverage/lcov-report/index.html
+```
+
+![Coverage report](images/coverage-report.png)
+
+**Warning:** I am not sure the coverage numbers are making 100% sense for Svelte files.
+
 ## Svelte v3
 
 This component adaptor is meant for [Svelte v3](https://svelte.dev/blog/svelte-3-rethinking-reactivity). If you need Svelte v2 support, check out branch [svelte-v2](https://github.com/bahmutov/cypress-svelte-unit-test/tree/svelte-v2)
