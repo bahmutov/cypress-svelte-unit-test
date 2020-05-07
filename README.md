@@ -9,21 +9,15 @@
 Requires [Node](https://nodejs.org/en/) version 8 or above and Cypress v4.5.0+
 
 ```sh
-npm install --save-dev cypress-svelte-unit-test @cypress/webpack-preprocessor
+# Install this plugin and test spec preprocessor
+npm install --save-dev cypress-svelte-unit-test @bahmutov/cy-rollup
 ```
 
-1. Configure Cypress to use the plugin in [cypress/plugins/index.js](cypress/plugins/index.js):
+1. Tell Cypress to use your `rollup.config.js` to bundle specs using [cypress/plugins/index.js](cypress/plugins/index.js):
 
 ```js
-const webpackPreprocessor = require('@cypress/webpack-preprocessor')
-module.exports = on => {
-  const options = {
-    // send in the options from your webpack.config.js, so it works the same
-    // as your app's code
-    webpackOptions: require('../webpack.config.js')
-  }
-
-  on('file:preprocessor', webpackPreprocessor(options))
+module.exports = (on) => {
+  on('file:preprocessor', require('@bahmutov/cy-rollup'))
 }
 ```
 
@@ -32,7 +26,8 @@ module.exports = on => {
 ```json
 {
   "experimentalComponentTesting": true,
-  "componentFolder": "src"
+  "componentFolder": "src",
+  "testFiles": "**/*spec.js"
 }
 ```
 
@@ -40,7 +35,6 @@ See [cypress.json](cypress.json) in this project.
 
 ## Known issues
 
-- uses Webpack [#53](https://github.com/bahmutov/cypress-svelte-unit-test/issues/53), which is different how most Svelte apps are rolled 😉
 - need to load images differently to transform relative paths
 
 ## Svelte v3
@@ -54,7 +48,7 @@ Import your Svelte component and mount using the provided function. Pass [compon
 ```js
 /// <reference types="cypress" />
 import App from '../components/ChainedBalls.svelte'
-import {mount} from 'cypress-svelte-unit-test'
+import { mount } from 'cypress-svelte-unit-test'
 
 describe('SVG animation', () => {
   it('shows chained balls', () => {
@@ -65,12 +59,16 @@ describe('SVG animation', () => {
         stroke-width: 2px;
       }
     `
-    mount(App, {
-      props: {
-        width: 960,
-        height: 500
-      }
-    }, { style })
+    mount(
+      App,
+      {
+        props: {
+          width: 960,
+          height: 500,
+        },
+      },
+      { style },
+    )
     cy.get('circle').should('have.length', 50)
   })
 })
@@ -84,6 +82,7 @@ Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/e
 
 All components and tests are in [cypress/components](cypress/components) folder
 
+<!-- prettier-ignore-start -->
 Test | Description
 --- | ---
 [animation](cypress/components/animation) | Chained balls SVG animation
@@ -97,26 +96,27 @@ Test | Description
 [rx](cypress/components/rx) | Fetching GitHub users as a reactive stream
 [styles](cypress/components/styles) | Shows inline, CSS and external stylesheet styles in spec
 [tutorial](cypress/components/tutorial) | A few components and tests from Svelte tutorial
+<!-- prettier-ignore-end -->
 
 ## Related tools
 
 Same feature for unit testing components from other framesworks using Cypress
 
-* [cypress-vue-unit-test](https://github.com/bahmutov/cypress-vue-unit-test)
-* [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test)
-* [cypress-cycle-unit-test](https://github.com/bahmutov/cypress-cycle-unit-test)
-* [cypress-svelte-unit-test](https://github.com/bahmutov/cypress-svelte-unit-test)
-* [cypress-angular-unit-test](https://github.com/bahmutov/cypress-angular-unit-test)
-* [cypress-hyperapp-unit-test](https://github.com/bahmutov/cypress-hyperapp-unit-test)
-* [cypress-angularjs-unit-test](https://github.com/bahmutov/cypress-angularjs-unit-test)
+- [cypress-vue-unit-test](https://github.com/bahmutov/cypress-vue-unit-test)
+- [cypress-react-unit-test](https://github.com/bahmutov/cypress-react-unit-test)
+- [cypress-cycle-unit-test](https://github.com/bahmutov/cypress-cycle-unit-test)
+- [cypress-svelte-unit-test](https://github.com/bahmutov/cypress-svelte-unit-test)
+- [cypress-angular-unit-test](https://github.com/bahmutov/cypress-angular-unit-test)
+- [cypress-hyperapp-unit-test](https://github.com/bahmutov/cypress-hyperapp-unit-test)
+- [cypress-angularjs-unit-test](https://github.com/bahmutov/cypress-angularjs-unit-test)
 
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2018
 
-* [@bahmutov](https://twitter.com/bahmutov)
-* [glebbahmutov.com](https://glebbahmutov.com)
-* [blog](https://glebbahmutov.com/blog)
+- [@bahmutov](https://twitter.com/bahmutov)
+- [glebbahmutov.com](https://glebbahmutov.com)
+- [blog](https://glebbahmutov.com/blog)
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
