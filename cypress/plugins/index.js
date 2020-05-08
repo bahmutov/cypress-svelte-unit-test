@@ -1,6 +1,7 @@
 module.exports = (on, config) => {
   // https://github.com/bahmutov/cy-rollup
-  on('file:preprocessor', require('@bahmutov/cy-rollup'))
+  const filePreprocessor = require('@bahmutov/cy-rollup')
+  on('file:preprocessor', filePreprocessor())
 
   // https://github.com/cypress-io/code-coverage
   require('@cypress/code-coverage/task')(on, config)

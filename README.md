@@ -10,14 +10,18 @@ Requires [Node](https://nodejs.org/en/) version 8 or above and Cypress v4.5.0+
 
 ```sh
 # Install this plugin and test spec preprocessor
-npm install --save-dev cypress-svelte-unit-test @bahmutov/cy-rollup
+npm install --save-dev cypress-svelte-unit-test
+# if Cypress is not installed already
+npx install --save-dev cypress
 ```
 
 1. Tell Cypress to use your `rollup.config.js` to bundle specs using [cypress/plugins/index.js](cypress/plugins/index.js):
 
 ```js
 module.exports = (on) => {
-  on('file:preprocessor', require('@bahmutov/cy-rollup'))
+  // @bahmutov/cy-rollup is already a dependency of cypress-react-unit-test
+  const filePreprocessor = require('@bahmutov/cy-rollup')
+  on('file:preprocessor', filePreprocessor())
 }
 ```
 
@@ -32,6 +36,21 @@ module.exports = (on) => {
 ```
 
 See [cypress.json](cypress.json) in this project.
+
+3. Write a test!
+
+```js
+import HelloWorld from './HelloWorld.svelte'
+import { mount } from 'cypress-svelte-unit-test'
+it('shows greeting', () => {
+  mount(HelloWorld, {
+    props: {
+      name: 'World',
+    },
+  })
+  cy.contains('h1', 'Hello World!')
+})
+```
 
 ## Known issues
 
@@ -76,7 +95,9 @@ Add the plugin to your [cypress/plugins/index.js](cypress/plugins/index.js) file
 
 ```js
 module.exports = (on, config) => {
-  on('file:preprocessor', require('@bahmutov/cy-rollup'))
+  const filePreprocessor = require('@bahmutov/cy-rollup')
+  on('file:preprocessor', filePreprocessor())
+
   require('@cypress/code-coverage/task')(on, config)
   // IMPORTANT to return the config object
   // with the any changed environment variables
