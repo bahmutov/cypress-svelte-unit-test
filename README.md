@@ -1,5 +1,7 @@
 # cypress-svelte-unit-test [![CircleCI](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master) [![renovate-app badge][renovate-badge]][renovate-app]
 
+![cypress version](https://img.shields.io/badge/cypress-4.5.0-brightgreen) ![@bahmutov/cy-rollup version](https://img.shields.io/badge/@bahmutov/cy--rollup-2.0.0-brightgreen)
+
 > Component testing for Svelte apps using the open source [Cypress.io](https://www.cypress.io/) E2E test runner **v4.5.0+**
 
 ![Keypad pin spec](images/pin.gif)
