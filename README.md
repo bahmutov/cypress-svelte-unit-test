@@ -63,7 +63,10 @@ it('shows greeting', () => {
 })
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f2y8DOAIVXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center>
+  <a href="https://youtu.be/f2y8DOAIVXY" title="Watch: writing the first component test"><img src="https://img.youtube.com/vi/f2y8DOAIVXY/hqdefault.jpg">
+  </a>
+</center>
 
 ## Known issues
 
@@ -171,7 +174,10 @@ describe('SVG animation', () => {
 })
 ```
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9PGqSON9cv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center>
+  <a href="https://youtu.be/9PGqSON9cv8" title="Watch: pass props to the component"><img src="https://img.youtube.com/vi/9PGqSON9cv8/hqdefault.jpg">
+  </a>
+</center>
 
 ### Styles
 
@@ -203,7 +209,10 @@ mount(HelloWorld, props, {
 
 ![Mount HTML example](images/mount-html.png)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dchx_4Klyok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center>
+  <a href="https://youtu.be/dchx_4Klyok" title="Watch: style component during testing"><img src="https://img.youtube.com/vi/dchx_4Klyok/hqdefault.jpg">
+  </a>
+</center>
 
 ### Callbacks
 
@@ -226,7 +235,10 @@ mount(TodoItem, {
 
 See [cypress/components/callbacks](cypress/components/callbacks).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bx9vJMO0tdQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<center>
+  <a href="https://youtu.be/bx9vJMO0tdQ" title="Watch: testing message dispatch"><img src="https://img.youtube.com/vi/bx9vJMO0tdQ/hqdefault.jpg">
+  </a>
+</center>
 
 ## Examples
 
