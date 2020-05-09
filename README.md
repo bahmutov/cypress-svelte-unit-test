@@ -6,6 +6,15 @@
 
 ![Keypad pin spec](images/pin.gif)
 
+## Videos
+
+I have recorded a series of short (3-4 minutes) videos showing Cypress + `cypress-svelte-unit-test` in action. See the [playlist](https://www.youtube.com/playlist?list=PLP9o9QNnQuAa50lwW3cUql5sgdKIWkapp)
+
+- [Writing the first component test](https://youtu.be/f2y8DOAIVXY)
+- [Pass props to the component](https://youtu.be/9PGqSON9cv8)
+- [Testing message dispatch](https://youtu.be/bx9vJMO0tdQ)
+- [Style component during testing](https://youtu.be/dchx_4Klyok)
+
 ## Install
 
 Requires [Node](https://nodejs.org/en/) version 8 or above and Cypress v4.5.0+
@@ -53,6 +62,8 @@ it('shows greeting', () => {
   cy.contains('h1', 'Hello World!')
 })
 ```
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/f2y8DOAIVXY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Known issues
 
@@ -160,6 +171,8 @@ describe('SVG animation', () => {
 })
 ```
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9PGqSON9cv8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Styles
 
 You can use local styles, local CSS file path (relative to the the Cypress project root) or external stylesheets. See [styles example](cypress/components/styles). You can surround the component with HTML and mount the component into the element with ID "here", see [cypress/components/mount-html](cypress/components/mount-html)
@@ -190,6 +203,8 @@ mount(HelloWorld, props, {
 
 ![Mount HTML example](images/mount-html.png)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dchx_4Klyok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ### Callbacks
 
 You can listen for messages from the component by supplying an object of callbacks.
@@ -210,6 +225,8 @@ mount(TodoItem, {
 ```
 
 See [cypress/components/callbacks](cypress/components/callbacks).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bx9vJMO0tdQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Examples
 
