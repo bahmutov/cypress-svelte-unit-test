@@ -76,6 +76,7 @@ export function mount(
   options: ComponentOptions = {},
   styleOptions: Partial<StyleOptions> = {},
 ) {
+  options = options || {}
   checkMountModeEnabled()
 
   return cy.then(() => {
