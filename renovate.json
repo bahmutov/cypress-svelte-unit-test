@@ -26,9 +26,10 @@
         "*"
       ],
       "excludePackagePatterns": [
+        "@bahmutov/cy-rollup",
         "cypress",
-        "@cypress/webpack-preprocessor",
         "semantic-release",
+        "rollup",
         "typescript",
         "svelte",
         "svelte-loader"
