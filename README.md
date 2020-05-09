@@ -1,6 +1,6 @@
-# cypress-svelte-unit-test [![CircleCI](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master) [![renovate-app badge][renovate-badge]][renovate-app]
+# cypress-svelte-unit-test [![CI][ci image]][ci url] [![circle image]][circle url]
 
-![cypress version](https://img.shields.io/badge/cypress-4.5.0-brightgreen) ![@bahmutov/cy-rollup version](https://img.shields.io/badge/@bahmutov/cy--rollup-2.0.0-brightgreen)
+[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-4.5.0-brightgreen) ![@bahmutov/cy-rollup version](https://img.shields.io/badge/@bahmutov/cy--rollup-2.0.0-brightgreen)
 
 > Component testing for Svelte apps using the open source [Cypress.io](https://www.cypress.io/) E2E test runner **v4.5.0+**
 
@@ -232,7 +232,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[ci-image]: https://travis-ci.org/bahmutov/cypress-svelte-unit-test.svg?branch=master
-[ci-url]: https://travis-ci.org/bahmutov/cypress-svelte-unit-test
+[circle image]: https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master.svg?style=svg
+[circle url]: https://circleci.com/gh/bahmutov/cypress-svelte-unit-test/tree/master
+[ci image]: https://github.com/bahmutov/cypress-svelte-unit-test/workflows/ci/badge.svg?branch=master
+[ci url]: https://github.com/bahmutov/cypress-svelte-unit-test/actions
 [renovate-badge]: https://img.shields.io/badge/renovate-app-blue.svg
 [renovate-app]: https://renovateapp.com/
