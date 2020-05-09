@@ -50,9 +50,30 @@ export interface StyleOptions {
   html: string
 }
 
+export interface ComponentOptions {
+  callbacks?: {
+    [key: string]: Function
+  }
+}
+
+interface SvelteComponentOptions {
+  target: Element
+}
+interface SvelteComponent {
+  $$: {
+    callbacks: {
+      [key: string]: Function[]
+    }
+  }
+}
+
+interface SvelteComponentConstructor {
+  new (options: SvelteComponentOptions): SvelteComponent
+}
+
 export function mount(
-  Component: any,
-  options = {},
+  Component: SvelteComponentConstructor,
+  options: ComponentOptions = {},
   styleOptions: Partial<StyleOptions> = {},
 ) {
   checkMountModeEnabled()
@@ -94,6 +115,13 @@ export function mount(
     })
 
     const component = new Component(allOptions)
+    if (options.callbacks) {
+      // write message callbacks
+      Object.keys(options.callbacks).forEach((message) => {
+        component.$$.callbacks[message] = [options.callbacks![message]]
+      })
+    }
+
     return cy.wrap(component)
   })
 }
