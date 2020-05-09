@@ -43,6 +43,11 @@ export interface StyleOptions {
    * @alias cssFile
    */
   cssFile: string | string[]
+  /**
+   * HTML to surround the component with. Component itself
+   * will replace DIV with id "here".
+   */
+  html: string
 }
 
 export function mount(
@@ -69,8 +74,23 @@ export function mount(
     }
     injectStylesBeforeElement(styleOptions, document, el)
 
+    // by default we mount the component into the created element
+    let target = el
+
+    if (styleOptions && styleOptions.html) {
+      el.innerHTML = styleOptions.html
+      target = document.getElementById('here')
+      if (!target) {
+        console.error('mount has HTML with DIV with ID "here"')
+        console.error(styleOptions.html)
+        throw new Error(
+          'Could not find element with ID "here" in the HTML passed',
+        )
+      }
+    }
+
     const allOptions = Object.assign({}, options, {
-      target: el,
+      target,
     })
 
     const component = new Component(allOptions)

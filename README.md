@@ -158,7 +158,33 @@ describe('SVG animation', () => {
 })
 ```
 
-You can use local styles, local CSS file path (relative to the the Cypress project root) or external stylesheets. See [styles example](cypress/components/styles).
+You can use local styles, local CSS file path (relative to the the Cypress project root) or external stylesheets. See [styles example](cypress/components/styles). You can surround the component with HTML and mount the component into the element with ID "here", see [cypress/components/mount-html](cypress/components/mount-html)
+
+```js
+const props = {...}
+mount(HelloWorld, props, {
+  html: `
+    <div class="test-page">
+      this is a test
+      <div id="here"></div>
+      this is after component
+    </div>
+  `,
+  style: `
+    body {
+      background: pink
+    }
+    .test-page {
+      background: cyan
+    }
+    #here {
+      background: yellow
+    }
+  `,
+})
+```
+
+![Mount HTML example](images/mount-html.png)
 
 ## Examples
 
