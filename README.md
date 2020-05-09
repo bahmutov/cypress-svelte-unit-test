@@ -129,6 +129,8 @@ This component adaptor is meant for [Svelte v3](https://svelte.dev/blog/svelte-3
 
 Import your Svelte component and mount using the provided function. Pass [component options](https://svelte.dev/docs#Creating_a_component) and global document options (like a global CSS)
 
+### Props
+
 ```js
 /// <reference types="cypress" />
 import App from '../components/ChainedBalls.svelte'
@@ -158,6 +160,8 @@ describe('SVG animation', () => {
 })
 ```
 
+### Styles
+
 You can use local styles, local CSS file path (relative to the the Cypress project root) or external stylesheets. See [styles example](cypress/components/styles). You can surround the component with HTML and mount the component into the element with ID "here", see [cypress/components/mount-html](cypress/components/mount-html)
 
 ```js
@@ -186,6 +190,27 @@ mount(HelloWorld, props, {
 
 ![Mount HTML example](images/mount-html.png)
 
+### Callbacks
+
+You can listen for messages from the component by supplying an object of callbacks.
+
+```js
+mount(TodoItem, {
+  props: {
+    id: 'todo-id',
+    text: 'write a test',
+    complete: false,
+  },
+  callbacks: {
+    remove: cy.stub().as('remove'),
+    toggle: cy.stub().as('toggle'),
+    'inner-message': cy.stub().as('inner-message'),
+  },
+})
+```
+
+See [cypress/components/callbacks](cypress/components/callbacks).
+
 ## Examples
 
 Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/examples)
@@ -196,6 +221,7 @@ All components and tests are in [cypress/components](cypress/components) folder
 Test | Description
 --- | ---
 [animation](cypress/components/animation) | Chained balls SVG animation
+[callbacks](cypress/components/callbacks) | Listen for messages dispatched from the component
 [global-handlers](cypress/components/global-handlers) | Attaches event listeners to `document` and `window`
 [hello](cypress/components/hello) | Hello, component testing!
 [image](cypress/components/image) | Loading Rick-Roll image
