@@ -63,10 +63,7 @@ it('shows greeting', () => {
 })
 ```
 
-<center>
-  <a href="https://youtu.be/f2y8DOAIVXY" title="Watch: writing the first component test"><img src="https://img.youtube.com/vi/f2y8DOAIVXY/hqdefault.jpg">
-  </a>
-</center>
+Watch [Writing the first component test](https://youtu.be/f2y8DOAIVXY)
 
 ## Known issues
 
@@ -174,10 +171,7 @@ describe('SVG animation', () => {
 })
 ```
 
-<center>
-  <a href="https://youtu.be/9PGqSON9cv8" title="Watch: pass props to the component"><img src="https://img.youtube.com/vi/9PGqSON9cv8/hqdefault.jpg">
-  </a>
-</center>
+Watch [Pass props to the component](https://youtu.be/9PGqSON9cv8)
 
 ### Styles
 
@@ -209,10 +203,7 @@ mount(HelloWorld, props, {
 
 ![Mount HTML example](images/mount-html.png)
 
-<center>
-  <a href="https://youtu.be/dchx_4Klyok" title="Watch: style component during testing"><img src="https://img.youtube.com/vi/dchx_4Klyok/hqdefault.jpg">
-  </a>
-</center>
+Watch [Style component during testing](https://youtu.be/dchx_4Klyok)
 
 ### Callbacks
 
@@ -235,10 +226,7 @@ mount(TodoItem, {
 
 See [cypress/components/callbacks](cypress/components/callbacks).
 
-<center>
-  <a href="https://youtu.be/bx9vJMO0tdQ" title="Watch: testing message dispatch"><img src="https://img.youtube.com/vi/bx9vJMO0tdQ/hqdefault.jpg">
-  </a>
-</center>
+Watch [Testing message dispatch](https://youtu.be/bx9vJMO0tdQ)
 
 ## Examples
 
