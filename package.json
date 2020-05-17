@@ -71,7 +71,7 @@
     "sass": "1.26.5",
     "semantic-action": "1.1.6",
     "semantic-release": "17.0.7",
-    "svelte": "3.22.2",
+    "svelte": "3.22.3",
     "svelte-loader": "2.13.6",
     "svelte-preprocess": "3.7.4",
     "typescript": "3.9.2",
