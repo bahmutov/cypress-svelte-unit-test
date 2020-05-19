@@ -63,7 +63,7 @@
     "mocha": "5.2.0",
     "node-sass": "4.14.1",
     "prettier": "2.0.5",
-    "rollup": "2.10.3",
+    "rollup": "2.10.5",
     "rollup-plugin-filesize": "8.0.2",
     "rollup-plugin-istanbul": "2.0.1",
     "rollup-plugin-svelte": "5.2.2",
