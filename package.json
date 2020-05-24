@@ -50,7 +50,7 @@
     "@cypress/code-coverage": "3.7.5",
     "@cypress/webpack-preprocessor": "5.4.1",
     "@rollup/plugin-alias": "3.1.0",
-    "@rollup/plugin-commonjs": "11.1.0",
+    "@rollup/plugin-commonjs": "12.0.0",
     "@rollup/plugin-node-resolve": "8.0.0",
     "axios": "0.18.0",
     "ban-sensitive-files": "1.9.2",
