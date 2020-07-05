@@ -73,7 +73,7 @@
     "semantic-release": "17.1.1",
     "svelte": "3.23.2",
     "svelte-loader": "2.13.6",
-    "svelte-preprocess": "3.9.11",
+    "svelte-preprocess": "3.9.12",
     "typescript": "3.9.6",
     "webpack": "4.41.5"
   },
