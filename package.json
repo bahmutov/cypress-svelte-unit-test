@@ -74,7 +74,7 @@
     "svelte": "3.24.0",
     "svelte-loader": "2.13.6",
     "svelte-preprocess": "3.9.12",
-    "typescript": "3.9.6",
+    "typescript": "3.9.7",
     "webpack": "4.41.5"
   },
   "standard": {
