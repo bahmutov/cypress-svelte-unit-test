@@ -249,6 +249,7 @@ Test | Description
 [rx](cypress/components/rx) | Fetching GitHub users as a reactive stream
 [styles](cypress/components/styles) | Shows inline, CSS and external stylesheet styles in spec
 [tutorial](cypress/components/tutorial) | A few components and tests from Svelte tutorial
+[mocking-fetch](cypress/components/mocking-fetch) | Mocking `window.fetch` before mounting the component
 <!-- prettier-ignore-end -->
 
 ## Related tools
