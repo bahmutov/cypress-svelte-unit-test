@@ -14,6 +14,8 @@ I have recorded a series of short (3-4 minutes) videos showing Cypress + `cypres
 - [Pass props to the component](https://youtu.be/9PGqSON9cv8)
 - [Testing message dispatch](https://youtu.be/bx9vJMO0tdQ)
 - [Style component during testing](https://youtu.be/dchx_4Klyok)
+- [Stubbing window.fetch](https://youtu.be/zuyIVHcd8pQ)
+- [Using experimental fetch polyfill](https://youtu.be/F7uJ_ZhmrbE)
 
 ## Install
 
