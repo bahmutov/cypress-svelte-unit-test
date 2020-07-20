@@ -19,6 +19,6 @@
     </ul>
     {:else}
       <!-- this block renders when users.length === 0 -->
-      <p>loading...</p>
+      <p class="loading">loading...</p>
     {/each}
 </div>
