@@ -2,6 +2,7 @@ import {
   checkMountModeEnabled,
   cleanupStyles,
   injectStylesBeforeElement,
+  polyfillFetchIfNeeded,
 } from './utils'
 
 const rootId = 'cypress-root'
@@ -78,6 +79,7 @@ export function mount(
 ) {
   options = options || {}
   checkMountModeEnabled()
+  polyfillFetchIfNeeded()
 
   return cy.then(() => {
     // @ts-ignore

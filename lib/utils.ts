@@ -1,4 +1,5 @@
 import { StyleOptions } from '.'
+import unfetch from 'unfetch'
 
 export function checkMountModeEnabled() {
   // @ts-ignore
@@ -140,4 +141,22 @@ export const injectStylesBeforeElement = (
   }
 
   return insertLocalCssFiles(cssFiles, document, el, options.log)
+}
+
+/**
+ * Replaces window.fetch with a polyfill based on XMLHttpRequest
+ * that Cypress can spy on and stub
+ * @see https://www.cypress.io/blog/2020/06/29/experimental-fetch-polyfill/
+ */
+export function polyfillFetchIfNeeded() {
+  // @ts-ignore
+  if (Cypress.config('experimentalFetchPolyfill')) {
+    // @ts-ignore
+    if (!cy.state('fetchPolyfilled')) {
+      delete window.fetch
+      window.fetch = unfetch
+      // @ts-ignore
+      cy.state('fetchPolyfilled', true)
+    }
+  }
 }

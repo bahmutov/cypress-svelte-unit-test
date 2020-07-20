@@ -44,7 +44,8 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "@bahmutov/cy-rollup": "2.0.0"
+    "@bahmutov/cy-rollup": "2.0.0",
+    "unfetch": "4.1.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.8.1",
