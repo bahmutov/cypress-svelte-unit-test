@@ -2,6 +2,7 @@ import {
   checkMountModeEnabled,
   cleanupStyles,
   injectStylesBeforeElement,
+  polyfillFetchIfNeeded,
 } from './utils'
 
 const rootId = 'cypress-root'
@@ -126,5 +127,9 @@ export function mount(
     return cy.wrap(component)
   })
 }
+
+beforeEach(() => {
+  polyfillFetchIfNeeded()
+})
 
 export default mount

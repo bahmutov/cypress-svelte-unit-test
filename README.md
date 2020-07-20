@@ -250,6 +250,7 @@ Test | Description
 [styles](cypress/components/styles) | Shows inline, CSS and external stylesheet styles in spec
 [tutorial](cypress/components/tutorial) | A few components and tests from Svelte tutorial
 [mocking-fetch](cypress/components/mocking-fetch) | Mocking `window.fetch` before mounting the component
+[mocking-network](cypress/components/mocking-network) | Polyfills `window.fetch` [automatically](https://www.cypress.io/blog/2020/06/29/experimental-fetch-polyfill/) and tests the component
 <!-- prettier-ignore-end -->
 
 ## Related tools
