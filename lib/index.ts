@@ -79,7 +79,6 @@ export function mount(
 ) {
   options = options || {}
   checkMountModeEnabled()
-  polyfillFetchIfNeeded()
 
   return cy.then(() => {
     // @ts-ignore
@@ -128,5 +127,9 @@ export function mount(
     return cy.wrap(component)
   })
 }
+
+beforeEach(() => {
+  polyfillFetchIfNeeded()
+})
 
 export default mount
