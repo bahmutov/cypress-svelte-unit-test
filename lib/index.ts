@@ -51,9 +51,27 @@ export interface StyleOptions {
   html: string
 }
 
+/**
+ * Options to pass to the component's constructor
+ *
+ * @export
+ * @interface ComponentOptions
+ * @example
+ *  mount(HelloWorld, { props: {name: 'World'} })
+ */
 export interface ComponentOptions {
   callbacks?: {
     [key: string]: Function
+  }
+  /**
+   * List of props to pass to the component's constructor
+   *
+   * @memberof ComponentOptions
+   * @example
+   *  mount(HelloWorld, { props: {name: 'World'} })
+   */
+  props?: {
+    [key: string]: any
   }
 }
 
