@@ -232,6 +232,8 @@ Watch [Testing message dispatch](https://youtu.be/bx9vJMO0tdQ)
 
 ## Examples
 
+### Basic examples
+
 Svelte components copied from [https://svelte.dev/examples](https://svelte.dev/examples)
 
 All components and tests are in [cypress/components](cypress/components) folder
@@ -253,6 +255,16 @@ Test | Description
 [tutorial](cypress/components/tutorial) | A few components and tests from Svelte tutorial
 [mocking-fetch](cypress/components/mocking-fetch) | Mocking `window.fetch` before mounting the component
 [mocking-network](cypress/components/mocking-network) | Polyfills `window.fetch` [automatically](https://www.cypress.io/blog/2020/06/29/experimental-fetch-polyfill/) and tests the component
+<!-- prettier-ignore-end -->
+
+### External examples
+
+You can find larger Svelte example application with component tests under GitHub topic [cypress-svelte-unit-test-example](https://github.com/topics/cypress-svelte-unit-test-example)
+
+<!-- prettier-ignore-start -->
+Name | Description
+--- | ---
+[svelte-ts-example](https://github.com/bahmutov/svelte-ts-example) | Writing Svelte components and tests using TypeScript
 <!-- prettier-ignore-end -->
 
 ## Related tools
