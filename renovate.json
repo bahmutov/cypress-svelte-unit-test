@@ -32,7 +32,8 @@
         "rollup",
         "typescript",
         "svelte",
-        "svelte-loader"
+        "svelte-loader",
+        "dependency-version-badge"
       ],
       "enabled": false
     }

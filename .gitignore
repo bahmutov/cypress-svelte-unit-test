@@ -5,3 +5,4 @@ cypress/screenshots
 dist
 .nyc_output
 coverage
+public
