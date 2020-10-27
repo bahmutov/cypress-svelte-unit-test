@@ -1,6 +1,6 @@
 # cypress-svelte-unit-test [![CI][ci image]][ci url] [![circle image]][circle url]
 
-[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-5.4.0-brightgreen) ![@bahmutov/cy-rollup version](https://img.shields.io/badge/@bahmutov/cy--rollup-2.0.0-brightgreen)
+[![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-5.5.0-brightgreen) ![@bahmutov/cy-rollup version](https://img.shields.io/badge/@bahmutov/cy--rollup-2.0.0-brightgreen)
 
 > Component testing for Svelte apps using the open source [Cypress.io](https://www.cypress.io/) E2E test runner **v4.5.0+**
 
