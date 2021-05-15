@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.9.5",
-    "@cypress/webpack-preprocessor": "5.5.0",
+    "@cypress/webpack-preprocessor": "5.8.0",
     "@rollup/plugin-alias": "3.1.2",
     "@rollup/plugin-commonjs": "11.1.0",
     "@rollup/plugin-node-resolve": "8.4.0",
