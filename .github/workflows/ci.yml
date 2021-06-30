@@ -23,6 +23,16 @@ jobs:
         with:
           build: npm run build
 
+      # https://github.com/cycjimmy/semantic-release-action
+      - name: Semantic Release 🚀
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
+        with:
+          branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Update version badges 🏷
         run: |
           npx update-badge cypress @bahmutov/cy-rollup
