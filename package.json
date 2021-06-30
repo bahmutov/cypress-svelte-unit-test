@@ -67,7 +67,7 @@
     "prettier": "2.0.5",
     "rollup": "2.48.0",
     "rollup-plugin-filesize": "9.1.1",
-    "rollup-plugin-istanbul": "2.0.1",
+    "rollup-plugin-istanbul": "3.0.0",
     "rollup-plugin-svelte": "5.2.3",
     "rxjs": "6.5.1",
     "sass": "1.26.5",
