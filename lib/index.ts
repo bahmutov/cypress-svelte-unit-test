@@ -113,36 +113,36 @@ export function mount(
       el.setAttribute('id', rootId)
       document.getElementsByTagName('body')[0].prepend(el)
     }
-    injectStylesBeforeElement(styleOptions, document, el)
+    return injectStylesBeforeElement(styleOptions, document, el).then(() => {
+      // by default we mount the component into the created element
+      let target = el
 
-    // by default we mount the component into the created element
-    let target = el
-
-    if (styleOptions && styleOptions.html) {
-      el.innerHTML = styleOptions.html
-      target = document.getElementById('here')
-      if (!target) {
-        console.error('mount has HTML with DIV with ID "here"')
-        console.error(styleOptions.html)
-        throw new Error(
-          'Could not find element with ID "here" in the HTML passed',
-        )
+      if (styleOptions && styleOptions.html) {
+        el.innerHTML = styleOptions.html
+        target = document.getElementById('here')
+        if (!target) {
+          console.error('mount has HTML with DIV with ID "here"')
+          console.error(styleOptions.html)
+          throw new Error(
+            'Could not find element with ID "here" in the HTML passed',
+          )
+        }
       }
-    }
 
-    const allOptions = Object.assign({}, options, {
-      target,
-    })
-
-    const component = new Component(allOptions)
-    if (options.callbacks) {
-      // write message callbacks
-      Object.keys(options.callbacks).forEach((message) => {
-        component.$$.callbacks[message] = [options.callbacks![message]]
+      const allOptions = Object.assign({}, options, {
+        target,
       })
-    }
 
-    return cy.wrap(component)
+      const component = new Component(allOptions)
+      if (options.callbacks) {
+        // write message callbacks
+        Object.keys(options.callbacks).forEach((message) => {
+          component.$$.callbacks[message] = [options.callbacks![message]]
+        })
+      }
+
+      return cy.wrap(component)
+    })
   })
 }
 
