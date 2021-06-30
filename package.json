@@ -1,7 +1,7 @@
 {
   "name": "cypress-svelte-unit-test",
   "description": "Unit testing Svelte components in Cypress E2E test runner",
-  "version": "0.0.0-development",
+  "version": "3.3.2",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/cypress-svelte-unit-test/issues",
   "engines": {
