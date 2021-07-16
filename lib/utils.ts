@@ -3,7 +3,8 @@ import unfetch from 'unfetch'
 
 export function checkMountModeEnabled() {
   // @ts-ignore
-  if (Cypress.spec.specType !== 'component') {
+  const specType = Cypress?.spec?.specType // this will be present for cypress@6.x, but not for cypress@7.x
+  if (specType != null && specType !== 'component') {
     throw new Error(
       `In order to use mount or unmount functions please place the spec in component folder`,
     )
