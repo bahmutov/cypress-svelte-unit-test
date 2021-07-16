@@ -28,27 +28,16 @@ npm install --save-dev cypress-svelte-unit-test
 npx install --save-dev cypress
 ```
 
-1. Tell Cypress to use your `rollup.config.js` to bundle specs using [cypress/plugins/index.js](cypress/plugins/index.js):
+1. Tell Cypress to use your webpack.config.js` to bundle specs using [cypress/plugins/index.js](cypress/plugins/index.js):
 
 ```js
-module.exports = (on) => {
-  // @bahmutov/cy-rollup is already a dependency of cypress-svelte-unit-test
-  const filePreprocessor = require('@bahmutov/cy-rollup')
-  on('file:preprocessor', filePreprocessor())
+const { startDevServer } = require('@cypress/webpack-dev-server')
+const webpackConfig = require('../../webpack.config.js')
+
+module.exports = (on, config) => {
+  on('dev-server:start', (options) => startDevServer({ options, webpackConfig }))
 }
 ```
-
-2. ⚠️ Turn the experimental component support on in your `cypress.json`. You can also specify where component spec files are located. For example, to have them located in `src` folder use:
-
-```json
-{
-  "experimentalComponentTesting": true,
-  "componentFolder": "src",
-  "testFiles": "**/*spec.js"
-}
-```
-
-See [cypress.json](cypress.json) in this project.
 
 3. Write a test!
 
@@ -109,10 +98,13 @@ import '@cypress/code-coverage/support'
 Add the plugin to your [cypress/plugins/index.js](cypress/plugins/index.js) file
 
 ```js
-module.exports = (on, config) => {
-  const filePreprocessor = require('@bahmutov/cy-rollup')
-  on('file:preprocessor', filePreprocessor())
+const { startDevServer } = require('@cypress/webpack-dev-server')
+const webpackConfig = require('../../webpack.config.js')
 
+module.exports = (on, config) => {
+  on('dev-server:start', (options) => startDevServer({ options, webpackConfig }))
+
+  // https://github.com/cypress-io/code-coverage
   require('@cypress/code-coverage/task')(on, config)
   // IMPORTANT to return the config object
   // with the any changed environment variables
