@@ -24,11 +24,11 @@ describe('Styles', () => {
 
   it('adds stylesheet', () => {
     mount(Component, null, {
-      stylesheet: '/__root/cypress/components/styles/app.css',
+      stylesheet: '/cypress/components/styles/app.css',
     })
     cy.get('body').should('have.css', 'background-color', 'rgb(0, 255, 255)')
   })
-  
+
   it('adds CSS file and resolves a svelte component', () => {
     // Regression test for https://github.com/bahmutov/cypress-svelte-unit-test/issues/250.
     // Basically, `mount` was not returning the promise that returns the svelte component instance if using `cssFile` option.

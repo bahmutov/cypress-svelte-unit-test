@@ -1,15 +1,6 @@
 import { StyleOptions } from '.'
 import unfetch from 'unfetch'
 
-export function checkMountModeEnabled() {
-  // @ts-ignore
-  if (Cypress.spec.specType !== 'component') {
-    throw new Error(
-      `In order to use mount or unmount functions please place the spec in component folder`,
-    )
-  }
-}
-
 /**
  * Remove any style or extra link elements from the iframe placeholder
  * left from any previous test
