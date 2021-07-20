@@ -1,5 +1,4 @@
 import {
-  checkMountModeEnabled,
   cleanupStyles,
   injectStylesBeforeElement,
   polyfillFetchIfNeeded,
@@ -96,7 +95,6 @@ export function mount(
   styleOptions: Partial<StyleOptions> = {},
 ) {
   options = options || {}
-  checkMountModeEnabled()
 
   return cy.then(() => {
     // @ts-ignore

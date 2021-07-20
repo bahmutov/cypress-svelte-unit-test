@@ -1,4 +1,6 @@
 const { join } = require('path')
+const preprocess = require('svelte-preprocess')
+
 module.exports = {
   resolve: {
     // see below for an explanation
@@ -12,9 +14,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(html|svelte)$/,
-        exclude: /node_modules/,
-        use: 'svelte-loader',
+        test: /\.(svelte|css)$/,
+        use: [
+          {
+            loader: 'svelte-loader',
+            options: {
+              preprocess: [
+                preprocess({
+                  scss: {
+                    renderSync: true,
+                  },
+                }),
+              ],
+            },
+          },
+        ],
       },
     ],
   },

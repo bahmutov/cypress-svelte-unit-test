@@ -3,7 +3,6 @@
   "viewportHeight": 300,
   "viewportWidth": 300,
   "testFiles": "**/*spec.js",
-  "experimentalComponentTesting": true,
   "experimentalFetchPolyfill": true,
   "componentFolder": "cypress/components",
   "nodeVersion": "system"

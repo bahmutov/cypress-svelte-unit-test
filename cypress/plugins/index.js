@@ -1,11 +1,9 @@
-module.exports = (on, config) => {
-  // https://github.com/bahmutov/cy-rollup
-  const filePreprocessor = require('@bahmutov/cy-rollup')
-  on('file:preprocessor', filePreprocessor())
+const { startDevServer } = require('@cypress/webpack-dev-server')
+const webpackConfig = require('../../webpack.config.js')
 
-  // https://github.com/cypress-io/code-coverage
-  require('@cypress/code-coverage/task')(on, config)
-  // IMPORTANT to return the config object
-  // with the any changed environment variables
+module.exports = (on, config) => {
+  on('dev-server:start', async (options) => {
+    return startDevServer({ options, webpackConfig })
+  })
   return config
 }
