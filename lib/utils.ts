@@ -15,7 +15,7 @@ export function checkMountModeEnabled() {
  * left from any previous test
  */
 export function cleanupStyles(document: Document) {
-  const styles = document.body.querySelectorAll('style')
+  const styles = document.querySelectorAll('body > style')
   styles.forEach((styleElement) => {
     document.body.removeChild(styleElement)
   })
