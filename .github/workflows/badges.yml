@@ -9,6 +9,11 @@ on:
       - README.md
       - package.json
       - .github/workflows/badges.yml
+  schedule:
+    # update badges every night
+    # because we have a few badges that are linked
+    # to the external repositories
+    - cron: '0 3 * * *'
 
 jobs:
   build:
@@ -20,11 +25,12 @@ jobs:
 
       - name: Update version badges 🏷
         run: |
-          npx update-badge cypress @bahmutov/cy-rollup
+          npx -p dependency-version-badge update-badge cypress @bahmutov/cy-rollup
 
       # commit any changed files
-      # https://github.com/mikeal/publish-to-github-action
-      - name: Push any changes to repo 📤
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit any changed files 💾
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated badges
+          branch: master
+          file_pattern: README.md
