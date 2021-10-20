@@ -1,19 +1,10 @@
 name: ci
-# update README badge only if the README file changes
-# or if the package.json file changes, or this files changes
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - README.md
-      - package.json
-      - .github/workflows/ci.yml
+on: push
 
 jobs:
   build:
-    name: Badges
-    runs-on: ubuntu-latest
+    name: Build
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
@@ -32,14 +23,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Update version badges 🏷
-        run: |
-          npx update-badge cypress @bahmutov/cy-rollup
-
-      # commit any changed files
-      # https://github.com/mikeal/publish-to-github-action
-      - name: Push any changes to repo 📤
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
