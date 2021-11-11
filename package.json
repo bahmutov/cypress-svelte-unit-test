@@ -56,7 +56,7 @@
     "axios": "0.18.0",
     "ban-sensitive-files": "1.9.2",
     "cypress": "6.9.1",
-    "cypress-expect": "2.4.3",
+    "cypress-expect": "2.5.0",
     "dependency-check": "3.3.0",
     "dependency-version-badge": "1.11.0",
     "deps-ok": "1.2.2",
