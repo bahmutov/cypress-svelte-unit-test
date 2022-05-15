@@ -55,7 +55,7 @@
     "@rollup/plugin-node-resolve": "8.4.0",
     "axios": "0.18.0",
     "ban-sensitive-files": "1.9.2",
-    "cypress": "6.9.1",
+    "cypress": "9.6.1",
     "cypress-expect": "2.5.0",
     "dependency-check": "3.3.0",
     "dependency-version-badge": "1.11.0",
