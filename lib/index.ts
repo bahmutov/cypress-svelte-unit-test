@@ -114,19 +114,19 @@ export function mount(
       document.getElementsByTagName('body')[0].prepend(el)
     }
     return injectStylesBeforeElement(styleOptions, document, el).then(() => {
-      // by default we mount the component into the created element
+      // by default, we mount the component into the created element
       let target = el
 
-      if (styleOptions && styleOptions.html) {
-        el.innerHTML = styleOptions.html
-        target = document.getElementById('here')
-        if (!target) {
-          console.error('mount has HTML with DIV with ID "here"')
-          console.error(styleOptions.html)
-          throw new Error(
-            'Could not find element with ID "here" in the HTML passed',
-          )
-        }
+      const wrapperHtml = styleOptions && typeof styleOptions.html === 'string' && styleOptions.html.trim() !== '' ? styleOptions.html : '<div id="here"></div>';
+
+      el.innerHTML = wrapperHtml;
+      target = document.getElementById('here')
+      if (!target) {
+        console.error('mount has HTML with DIV with ID "here"')
+        console.error(styleOptions.html)
+        throw new Error(
+          'Could not find element with ID "here" in the HTML passed',
+        )
       }
 
       const allOptions = Object.assign({}, options, {
