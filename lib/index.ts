@@ -6,6 +6,7 @@ import {
 } from './utils'
 
 const rootId = 'cypress-root'
+let component: SvelteComponent | null = null;
 
 /**
  * Additional styles to inject into the document.
@@ -84,6 +85,7 @@ interface SvelteComponent {
       [key: string]: Function[]
     }
   }
+  $destroy: Function
 }
 
 interface SvelteComponentConstructor {
@@ -104,6 +106,11 @@ export function mount(
     cleanupStyles(document)
 
     let el = document.getElementById(rootId)
+    if (component) {
+      component.$destroy();
+      component = null;
+    }
+
     if (el) {
       while (el.firstChild) {
         el.removeChild(el.firstChild)
@@ -133,11 +140,11 @@ export function mount(
         target,
       })
 
-      const component = new Component(allOptions)
+      component = new Component(allOptions)
       if (options.callbacks) {
         // write message callbacks
         Object.keys(options.callbacks).forEach((message) => {
-          component.$$.callbacks[message] = [options.callbacks![message]]
+          component!.$$.callbacks[message] = [options.callbacks![message]]
         })
       }
 
